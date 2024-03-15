@@ -1,0 +1,126 @@
+<%- include('./header.ejs') %>
+<div class="main-container">
+    <div class="container">
+        <div class="image-container">
+            <img src="public/imgs/img4.png" >
+        </div>
+        <div class="content-container">
+            <h1>Create - Connect - Grow with Kalakaar</h1>
+            <p>Access top talent for your projects, optimize costs, and ensure top-notch deliverables.</p>
+        </div>
+    </div>
+    <div class="container" style="display: block !important;" >
+        <div>
+            <h1 style="color: white;">Browse Work</h1>
+            <h4 style="color: #FF703C;">Looking for Work?<span style="color: white;">Browse jobs</span></h4>
+        </div>
+        <% for (let i = 0; i < 2; i++) { %>
+            <div class="row" style="margin-top: 20px;">
+            <% for (let i = 0; i < 3; i++) { %>
+                
+                <div class="modal" tabindex="-1" id="myModal<%= i %>" style="width: 100%; ">
+                    <div class="modal-dialog" style="max-width: 100%; width: 637px;">
+                        <div class="modal-content" style="background-color: #ffecea; border-radius: 25px;padding: 10px 27px;">
+                            <form action="/applyjob" method="post">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title"><%= allWorks[i].title %><span style="color: rgb(142 137 137);">(College Farewell Celebration)</span></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="margin-bottom: 20px; margin-right: 2px;"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p style="text-align: left;"><%= allWorks[i].description %></p>
+                                    <div class="modal-details">
+                                        <div class="modal-detail-container">
+                                            <p>
+                                                <span class="icon"> </span>
+                                                Duration: <%= allWorks[i].duration %>
+                                            </p>
+                                            <p>
+                                                <span class="icon"> </span>
+                                                Budget: ₹5000/-
+                                            </p>
+                                        </div>
+                                        <div class="modal-detail-container1">
+                                            <p>
+                                                <span class="icon"> </span>
+                                                Location: <%= allWorks[i].location %>
+                                            </p>
+                                            <p>
+                                                <span class="icon"> </span>
+                                                Date: <%= allWorks[i].date %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="workId" value="<%= allWorks[i]._id %>">
+                                    <p style="color: #ff4500; text-align: left; font-size: 1rem; margin-top: 15px;">
+                                        <span class="icon"> </span>
+                                        Proposal:
+                                    </p>
+                                    <textarea type="text" class="text-field" name="praposal" placeholder="Express yourself here, Enlighten how you can help them."></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" style="color: #000;
+                                font-size: 16px;
+                                color: #fff;
+                                border-color: #FFECEA;
+                                background-color: #ff4500;
+                                border-radius: 45px;
+                                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                                height: 0px;
+                                width: 30%;
+                                margin: 20px auto;
+                                padding: 5px 0px 28px 5px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                --bs-btn-active-color: #000;
+                                --bs-btn-active-bg: #FFECEA;">APPLY NOW</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- jobcard -->
+                <!-- <div class="card"> -->
+                    <button class="btn-card btn-primary" data-bs-toggle="modal" data-bs-target="#myModal<%= i %>">
+                        <h2 class="title"><%= allWorks[i].title %></h2>
+                        <div class="details">
+                        <div class="prow">
+                            <p>Duration: <%= allWorks[i].duration %></p>
+                            <p>Budget: <%= allWorks[i].budget %></p>
+                        </div>
+                        <div class="prow">
+                            <p>Location: <%= allWorks[i].location %>       </p>
+                            <p>Date: <%= allWorks[i].date %></p>
+                        </div>
+                        </div>
+                    </button>
+                <!-- </div> -->
+                <% }  %>
+            </div>
+        <% } %>
+    </div>
+    <div class="container" id="target-section2" style="display: block !important;">
+        <div>
+            <h1 style="color: white;">Browse talent by category</h1>
+            <h4 style="color: #FF703C;">Looking for talents?<span style="color: white;">Browse them</span></h4>
+        </div>
+        <% for (let i = 0; i < 2; i++) { %>
+            <div class="row">
+            <% for (let i = 0; i < 4; i++) { %>
+                    <div class="card h-100" style="background-color: #FFECEA; height: 138px !important; width: 305px; margin: 10px;padding: 0;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img style="border-radius: 5px !important;width: 95% !important; height: 137px !important;" src="public/imgs/MMA.jpeg" class="" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body" style="padding-top: 25px;">
+                                    <h5 class="card-title" style="font-size: 27px;">MMA Artist</h5>
+                                    <p class="card-text" style="font-size: 17px;">30 Artist Available</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+<%- include('./footer.ejs') %>

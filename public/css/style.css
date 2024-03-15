@@ -1,0 +1,396 @@
+/* style.css */
+*{
+    margin: 0;
+    padding: 0;
+}
+.main-container{
+    background-color: #000;
+    color: #ff4500;
+    margin: 0 !important;
+    padding: 0;
+    font-family: Arial ;
+  }
+  .container {
+    display: flex;
+    padding: 50px;
+  }
+  
+  .home-container {
+    padding: 50px;
+    align-items: center;
+  }
+  .text-content {
+    flex: 1;
+    padding: 2em;
+    color: #ff4500;
+
+  }
+  
+  h1 {
+    font-size: 40px;
+    margin-bottom: -0.5em;
+  }
+  
+  h2 {
+    font-size: 40px;
+    margin-bottom: 0em;
+  }
+  
+  p {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 0.5em;
+    color: #ff703c;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  button1 {
+    background-color: #ff4500;
+    border: 1px solid #ff4500;
+    color: #000;
+    padding: 1em 2em;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    margin: 0.5em;
+    cursor: pointer;
+    border-radius: 50px;
+  }
+
+  .image-content {
+    flex: 1;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  img {
+    width: 80%;
+    height: auto;
+    border-radius: 70px;
+  }
+  
+  .img1 {
+    width: 63%;
+    height: 90%;
+    object-fit: contain;
+    border-radius: 40px;
+  }
+
+  .img2 {
+    width: 25%;
+    height: 90%;
+    object-fit: contain;
+    border-radius: 40px;
+  }
+
+  /* section 5 */
+  .h1{
+    color: #ff4500;
+    font-size: 40px;
+}
+
+
+.section{
+    flex: 1;
+    padding: 65px;
+}
+
+.section1{
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    font-size: 20px;
+}
+
+.section2{
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    font-size: 20px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    width: 150px; /* Adjust the width as needed */
+    padding: 10px;
+    background-color: #fff;
+    cursor: pointer;
+    color: #ff4500;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.dropdown-content {
+    width: 150px; /* Adjust the width to match dropdown-btn */
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    color: blue;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-btn::after {
+    content: '\25BE'; /* Unicode character for dropdown arrow */
+    margin-left: 5px;
+}
+
+ul li{
+    color: white;
+}
+
+/* footer */
+.text-reset-parent p{
+    color: #FFF;
+}
+
+.line{
+    background-color: #ff4500;
+    max-width: 100%;
+    height: 1px;
+}
+
+.card-info p {
+    font-size: 15px;
+}
+
+/* job-card */
+.btn-card{
+    color: #000 !important;
+    border-color: #FFECEA !important;
+    background-color: #FFEEE8 !important;
+    border-radius: 10px !important; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important; 
+    width: 30% !important; 
+    margin: 10px auto !important; 
+    padding: 20px !important; 
+    font-family: Arial, Helvetica, sans-serif !important;
+    --bs-btn-active-color: #000 !important;
+    --bs-btn-active-bg: #FFECEA !important;
+  }
+
+  .btn-card:hover{
+    background-color: #FFECEA;
+    color: #000;
+    border: 0px;
+  }
+
+  /* .card {
+    background-color: #FFECEA;
+    border-radius: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    width: 300px; 
+    margin: 20px auto; 
+    padding: 20px; 
+    font-family: Arial, Helvetica, sans-serif;
+  } */
+  
+  /* Style the title */
+  .title {
+    font-size: 1.5rem; /* Set the font size for the title */
+    font-weight: bold; /* Make the title bold */
+    margin-bottom: 10px; /* Add some space below the title */
+    text-align: center;
+    /* text-align: center; Center-align the title */
+  }
+  
+  /* Style the subtitle */
+  .subtitle {
+    font-size: 1rem; /* Set the font size for the subtitle */
+    font-style: italic; /* Make the subtitle italic */
+    text-align: center; /* Center-align the subtitle */
+    color: #888; /* Set a gray color for the subtitle */
+  }
+  
+  /* Style the details section */
+  .details {
+    margin-top: 15px; /* Add some space above the details */
+    display: flex; /* Arrange details items side-by-side */
+    flex-wrap: wrap; /* Allow details to wrap onto multiple lines if needed */
+    justify-content: space-between; /* Distribute details evenly with space in between */
+  }
+  
+  /* Style the detail items */
+  .details p {
+    font-weight: 100;
+    text-align: left;
+    color: #FF4500;
+    font-size: 0.8rem; /* Set a smaller font size for details */
+    margin-bottom: 5px; /* Add some space between detail items */
+  }
+
+  .content-container{
+    padding: 20px 43px;
+    width: 643px;
+  }
+  
+  .modal-details {
+    margin-top: 15px; /* Add some space above the details */
+    display: flex; /* Arrange details items side-by-side */
+    flex-wrap: wrap; /* Allow details to wrap onto multiple lines if needed */
+    justify-content: space-between; /* Distribute details evenly with space in between */
+  }
+  
+  .modal-details p {
+    text-align: left;
+    font-weight: 100;
+    color: #FF4500;
+    font-size: 17px; /* Set a smaller font size for details */
+    margin-bottom: 5px; /* Add some space between detail items */
+  }
+  
+  .icon {
+    margin-right: 5px; /* Adjust spacing for icon */
+    /* Add styles for icons (e.g., color, size) */
+  }
+  
+  .text-field {
+    margin-top: -12px;
+    opacity: 0.5;
+    width: 100%; /* Width of the text field */
+    height: 100%;
+    padding: 10px; /* Padding around the text field */
+    font-size: 16px; /* Font size of the text inside the text field */
+    border: 1px solid #ccc; /* Border of the text field */
+    border-radius: 10px; /* Border radius to make it slightly rounded */
+    outline: none; /* Remove the default focus outline */
+  }
+
+  .btn-close{
+    margin-bottom: -35px;
+  }
+
+  /* upload profile */
+  .container-upload-pic {
+    background-color: #000;
+    padding: 50px 467px;
+    border-radius: 25px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 100%; /* Adjust width as needed */
+  }
+  
+  .form-container-upload-pic{
+    background-color: #fff;
+    padding: 30px;
+    border-radius:20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 775px;
+    color: #000;
+    max-width: 100%; /* Adjust width as needed */
+  }
+  
+  textarea{
+    height: 214px;
+  }
+  
+  .post-upload-pic{
+    width: 130%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    background-color: #FFECEA;
+  }
+  
+  .donebtn {
+    margin-left: 25%;
+    margin-top: 5%;
+    width: 50%;
+    background-color: #ff4500;
+    color:white;
+    padding: 10px 15px;
+    border: 2px solid #ff4500; 
+    border-color: #ff4500;
+    border-radius: 45px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .post1-upload-pic{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    background-color: #FFECEA;
+    height: 123px;
+  }
+  .section-upload-pic{
+    display: flex;
+    margin-top: 30px;
+
+  }
+  .section-upload-pic .post{
+    width: 130%
+  }
+  .section2-upload-pic{
+    margin-left: 30%;
+  }
+  .upload-img{
+  display: flex;
+  gap: 378px;
+  }
+  
+  .logo-head .logo{
+  padding: 2px 130px;
+  width: 100%;
+  height: 100%;
+  }
+  
+  .span-upload-pic{
+  display: flex;
+  gap: 241px;
+  }
+  
+
+  /* profile */
+  .profile{
+    right: 20px;
+}
+
+
+.image-container {
+    flex: 1;
+    padding: 25px;
+}
+
+
+.content-container {
+    flex: 2;
+    padding: 20px;
+    margin-left: 50px;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 0em;
+    color: white;
+  }
+
+  

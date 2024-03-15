@@ -1,0 +1,42 @@
+<%- include('../header.ejs') %>
+<div class="main-container">
+    <div class="container">
+        
+        
+        <div class="image-container">
+            <img style="width: 79%;
+            height: auto;" src="<%= artist.profilephoto %>" >
+        </div>
+        <div class="content-container">
+            <h1><%= artist.fullname %></h1>
+            <h2 style="color: white;"><%= artist.profession %><h2>
+                <h2 style="color: white;"><%= artist.location %> based</h2>
+                <h2 style="color: white;">Hourly rate: <%= artist.budget %></h2>
+                <h4 style="padding: 2px 180px; margin-left: -180px;"><%= artist.description %></h4>
+            </div>
+          
+        </div>
+        <div class="container2", style="background-color: black; padding: 70px 155px;margin-top: -3%;" >
+            <div class="line"></div>
+            
+        <h1 style="color: #ff4500;margin-top: 60px; ">MY PERSONAL ACHIVEMENTS!!</h1>
+        <div class="info">
+            <ul style="color: #fff;">
+                <li><h2>Featured Dancer in Award-Winning Music Video <span style="color: #ff4500;">(2022)</span></h2></li>
+                <li><h2>Mentored at Youth Hip Hop Workshop <span style="color: #ff4500;">(2021)</span></h2></li>
+                <li><h2>Studied under Renowned Hip Hop Choreographer <span style="color: #ff4500;">(2020)</span></h2></li>  
+            </ul>
+        </div>
+    </div>
+    <div class="container" style="display: block !important;">
+        <div style="display: block; width: 100%;">
+            <h1 style="color: white;">Post</h1>
+        </div>
+        <div class="openVideo">
+            <video width="620" height="340" controls>
+                <source src="<%= artist.profilevideo %>" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+        </div>
+    </div>
+<%- include('../footer.ejs') %>

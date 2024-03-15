@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalakaar Sign Up</title>
+  <link rel="stylesheet" href="public/css/style1.css">
+</head>
+<body>
+    <div class="container">
+        <img src="public/imgs/KalaKaar.png" alt="Kalakaar Logo" class="logo">
+        <div class="form-container">
+        <h1>Sign up to Kalakaar</h1>
+        <form action="/submitForm" method="post">
+        <input class="Signup-text" type="text" id="firstname" name="fullname" placeholder="Full-name" required>
+        <input class="Signup-text" type="email" id="email" name="email" placeholder="into@gmail.com" required>
+        <input class="Signup-text" type="tel" id="contact" name="contact" placeholder="Contact-No" required>
+        <input class="Signup-text" type="password" id="password" name="password" placeholder="Password" required>
+        <select class="category-dropdown" name="role" style="background-color: #FFECEA;" required>
+            <option value="">select role</option>
+            <option value="recruiter">Recruiter</option>
+            <option value="artist">Artist</option>
+          </select>
+            <div class="checkbox-container">
+            <input type="checkbox" id="terms">
+            <label for="terms">I agree to Kalakaar's Terms of Service</label>
+        </div>
+        <button type="submit">Sign Up</button>
+    </form>
+        <a href="">Already have an Account?
+        </a>
+           <a href="/signin">
+               <button type="submit" class="Signin" href="/signin">Sign in</button>
+           </a>
+        </div>
+    </div>
+</body>
+</html>
+
+

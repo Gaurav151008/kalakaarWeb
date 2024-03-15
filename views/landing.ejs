@@ -1,0 +1,83 @@
+<%- include('./header.ejs') %>
+<div class="main-container">
+    <div class="container">
+        <div class="text-content">
+            <h1>Empowering Creativity - </h1>
+            <h2>Thrive with Kalakaar.</h2>
+            <p>Connect with Opportunities, Showcase Your Talent, and Shape Your Future.</p>
+            <div class="buttons">
+                <button1>Get Started</button1>
+            </div>
+        </div>
+        <div class="image-content">
+            <img src="public/imgs/img.jpg">
+        </div>
+    </div>
+    <!--Talent Cards -->
+    <div class="container">
+        <% for (let i = 0; i < 2; i++) { %>
+            <div class="row">
+            <% for (let i = 0; i < 4; i++) { %>
+                    <div class="card h-100" style="background-color: #FFECEA; height: 138px !important; width: 305px; margin: 10px;">
+                        <div class="card-body" style="height: 100%;">
+                        <h5 class="card-title" style="text-align: left; margin-top: 2%;">MMA Artist / Coach</h5>
+                        <div class="card-info" style="display: flex;    margin-top: 36px;
+                        justify-content: space-between; align-items: center;">
+                            <p class="card-text" style="color: #ff4500; margin-top: 3%; flex-direction: column;" ><i class="bi bi-star-fill">  </i>Featured</p>
+                            <p class="artist-count" style="color: #ff4500; margin-top: 3%; flex-direction: column;">223 Artists Available</p>
+                        </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        <% } %>
+
+    </div>
+    <div class="container">
+        <img src="public/imgs/img2.png" alt="Image 1" class="img1">
+        <img src="public/imgs/img3.png" alt="Image 2" class="img2">
+    </div>
+    <div class="container">
+        <div class="section">
+        <h1 class="h1">Who are you?</h1>
+        <div class="dropdown">
+          <button class="dropdown-btn">Pick an option</button>
+          <div class="dropdown-content">
+            <a href="#">Artist</a>
+            <a href="#">Recruiter</a>
+          </div>
+        </div>
+        </div>
+        <div class="section1">
+          <ul class="job-list1">
+            <li>Musician</li>
+            <li>Singer</li>
+            <li>Dancer</li>
+            <li>Actor</li>
+            <li>Comedian</li>
+            <li>Magician</li>
+            <li>Cinematographer</li>
+            <li>Film Editor</li>
+            <li>Sound Designer</li>
+            <li>Stunt Performer</li>
+            <li>Director (Film/Theater)</li>
+        </ul>
+        </div>
+        <div class="section2">
+        <ul class="job-list2">
+          <li>Hair Stylist</li>
+            <li>Photographer</li>
+            <li>Videographer</li>
+            <li>Choreographer</li>
+            <li>DJ</li>
+            <li>Voice Actor</li>
+            <li>Stunt Coordinator</li>
+            <li>Light Designer (Theater/Film)</li>
+            <li>Motion Capture Artist</li>
+            <li>Costume Designer (Theater)</li>
+            <li>Makeup Artist</li>
+          </ul>
+        </div>
+    </div>
+
+<%- include('./footer.ejs') %>

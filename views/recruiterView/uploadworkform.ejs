@@ -1,0 +1,99 @@
+<%- include('../header.ejs') %>
+<div class="main-container">
+
+    <div class="container" style="display: block !important;">
+        
+        <img style="    width: 290px;
+        height: 70px;
+        top: 35%;
+        margin: 0 38%;
+        display: block;
+        background: #000;" src="public/imgs/img5.png" alt="Kalakaar Logo" >
+        <div class="form-containerpg" style="background-color: #fff;
+        padding: 30px;
+        border-radius:20px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        width: 600px; /* Adjust width as needed */
+        margin: 50px 350px;">
+            <form action="/uploadworksubmit" method="post">
+                <h3>
+                    Job Title:
+                </h3>
+                <input style="width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 15px;
+                box-sizing: border-box;
+                margin-bottom: 15px;
+                background-color: #FFECEA;" class="postpg" type="text" id="Describe Job Title" name="title" placeholder="Describe Job Title" required>
+                <h3>
+                    Job Description:
+                </h3>
+                <textarea  style="height: 214px; width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 15px;
+                box-sizing: border-box;
+                margin-bottom: 15px;
+                background-color: #FFECEA;" class="postpg" type="text-field" name="description" placeholder="Describe Job Descriptions in Details, Requirements Skills or Education." required></textarea>
+                <div class="sectionpg" style="display: flex;">
+                <div class="section1pg">
+                    <h3>
+                        Job Budget:
+                    </h3>
+                    <input style="width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 15px;
+                    box-sizing: border-box;
+                    margin-bottom: 15px;
+                    background-color: #FFECEA;"  style="width: 130%" class="postpg" type="text" name="budget" placeholder="Describe budget" required>
+                    <h3>
+                        Job Date:
+                    </h3>
+                    <input style="width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 15px;
+                box-sizing: border-box;
+                margin-bottom: 15px;
+                background-color: #FFECEA;" style="width: 130%" class="postpg" type="date" name="date" placeholder="14-03-2024" required>
+                </div>
+                <div class="section2pg" style="margin-left: 30%;">
+                    <h3>
+                        Job Duration:
+                    </h3>
+                    <input style="width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 15px;
+                    box-sizing: border-box;
+                    margin-bottom: 15px;
+                    background-color: #FFECEA;" class="postpg" type="text" name="duration" placeholder="Hours/days" required>
+                    <h3>
+                        Job Location:
+                    </h3>
+                    <input style="width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 15px;
+                    box-sizing: border-box;
+                    margin-bottom: 15px;
+                    background-color: #FFECEA;" class="postpg" type="text" name="location" placeholder="Mumbai - Vadodara ?" required>
+                </div>
+                </div>
+                <button style="margin-left: 25%;
+                margin-top: 5%;
+                width: 50%;
+                background-color: #ff4500;
+                color:white;
+                padding: 10px 15px;
+                border: 2px solid #ff4500; 
+                border-color: #ff4500;
+                border-radius: 45px;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;" class="buttonpg" type="submit">Post Job</button>
+            </form>
+        </div>
+    </div>
+<%- include('../footer.ejs') %>

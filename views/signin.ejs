@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalakaar Login</title>
+  <link rel="stylesheet" href="public/css/style1.css">
+</head>
+<body>
+    
+    <div class="container">
+        <img src="public/imgs/KalaKaar.png" alt="Kalakaar Logo" class="logo">
+        <div class="form-container">
+            <h1>Log in to Kalakaar</h1>
+
+            <form action="/verifySignin" method="post">
+                <input class="Signin-text"type="email" id="email" name="email" placeholder="into@gmail.com" required>
+                <input class="Signin-text"type="password" id="password" name="password" placeholder="Password" required>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember Me</label>
+                </div>
+                <button type="submit">Sign In</button>
+            </form>
+                <a href="/signup">Don't have a Kalakaar account?    
+                    <button type="submit" class="Signup">Sign up</button>
+                </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kalakaar</title>
+    <link rel="stylesheet" href="public/css/style.css" type="text/css">
+    <!-- <link rel="stylesheet" href="public/css/style.css" type="text/css"> -->
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+  </head>
+  <body>
+    <script src="public/js/script.js"></script>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" style="background-color: rgb(0 0 0) !important;">
+        <div class="container-fluid">
+            <img src="public/imgs/KalaKaar.png" alt="Kalakaar Logo" class="navbar-brand" style="width: 170px; height: 75px;" />
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <ul class="navbar-nav mr-auto" style="margin-left: 15%; font-weight: 500; font-size: large;">
+                    <li class="nav-item active" style="margin-right: 50px;">
+                        <a class="nav-link active" href="">Find Talent</a>
+                    </li>
+                    <li class="nav-item" style="margin-right: 50px;">
+                        <a class="nav-link active" href="#">Find Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Why Kalakaar?</a>
+                    </li>
+                </ul>
+            </div>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 250px; border-radius: 45px; margin-right: 3.5rem !important; --bs-border-color: #fff; --bs-body-bg: #000;">
+            </form>
+            <% if(!loggedin) { %>
+                <a href="/signin"><button class="btn btn-outline-success" type="submit" style="margin-right: .5rem !important;
+                --bs-btn-color: #fff;
+                --bs-btn-border-color: #000;
+                --bs-btn-hover-color: #fff;
+                --bs-btn-hover-bg: #000;
+                --bs-btn-hover-border-color: #ff4500;
+                --bs-btn-focus-shadow-rgb: 25, 135, 84;
+                --bs-btn-active-color: #fff;
+                --bs-btn-active-bg: #ff4500;
+                --bs-btn-active-border-color: #198754;
+                --bs-btn-active-shadow: #ff703c;
+                --bs-btn-disabled-color: #198754;
+                --bs-btn-disabled-bg: transparent;
+                --bs-btn-disabled-border-color: #198754;
+                --bs-gradient: none;
+                border-radius: 45px;
+            ">Signin</button></a>
+            <a href="/signup">
+            <button class="btn btn-outline-success" type="submit" style="margin-right: .5rem !important;
+            background: #ff4500;
+            --bs-btn-color: #fff;
+            --bs-btn-border-color: #ff703c;
+            --bs-btn-hover-color: #fff;
+            --bs-btn-hover-bg: #ff4500;
+            --bs-btn-hover-border-color: #ff4500;
+            --bs-btn-focus-shadow-rgb: 25, 135, 84;
+            --bs-btn-active-color: #fff;
+            --bs-btn-active-bg: #198754;
+            --bs-btn-active-border-color: #198754;
+            --bs-btn-active-shadow: #ff703c;
+            --bs-btn-disabled-color: #198754;
+            --bs-btn-disabled-bg: transparent;
+            --bs-btn-disabled-border-color: #198754;
+            --bs-gradient: none;
+            border-radius: 45px;
+        ">Signup</button></a>
+            <% } else { %>
+                <ul class="navbar-nav mr-auto" style="font-weight: 500; font-size: large;">
+                    <li class="nav-item" style="margin-right: 20px;">
+                        <% if(user == "recruiter") { %>
+                        <a class="nav-link active" style="margin: 10px;"  href="/uploadworkform">UploadWork</a>
+                        <% } else { %>
+                            <a class="nav-link active" style="margin: 10px;" href="/appliedjobs">AppliedJobs</a>
+                        <% } %>
+                    </li>
+                    <li class="nav-item" style="margin-right: 25px;">
+                        <a class="nav-link active" href="/profile"><i class="bi bi-person" style="font-size: 2rem; "></i></a>
+                    </li>
+                </ul>
+            <% } %>
+          </div>
+        </div>
+      </nav>
+
+<div class="line"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
