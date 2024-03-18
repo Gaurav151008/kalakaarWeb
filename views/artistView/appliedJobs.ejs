@@ -9,9 +9,9 @@
         <div class="row" style="margin-top: 20px;margin-bottom: 50px;">
             <% for (let i = 0; i < 3; i++) { %>
                     <button class="btn-card btn-primary" data-bs-toggle="modal" data-bs-target="#myModal<%= i %>">
-                        <h2 class="title"><%= allApplication[i].title %> <img src="/kalakaarWeb/public/imgs/applied.png" alt="Description of the image"></h2>
+                        <h2 class="title"><%= allApplication[i].title %> <img src="/public/imgs/applied.png" alt="Description of the image" class="appliedjobsimg"></h2>
                         <div class="details">
-                            <div class="prow">
+                            <div class="prow">  
                                 <p>Duration: <%= allApplication[i].duration %></p>
                                 <p>Budget: <%= allApplication[i].budget %></p>
                             </div>
