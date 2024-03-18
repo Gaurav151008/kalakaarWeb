@@ -10,6 +10,18 @@
     padding: 0;
     font-family: Arial ;
   }
+
+  /* header search box */
+  #searchBox {
+    border: 1px solid #ccc; /* Change this to your desired default border color */
+}
+
+/* Active border color */
+#searchBox:focus {
+    border-color: #ff4500; /* Change this to your desired active border color */
+}
+  /* header search box */
+
   .container {
     display: flex;
     padding: 50px;
