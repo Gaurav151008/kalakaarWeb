@@ -423,3 +423,34 @@ h1 {
   margin: -10px;
 }
   /* appliedjobsimg */
+
+/* search-box */
+.d-flex{
+  position: relative;
+  display: inline-block;
+}
+
+.d-flex input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 45px;
+  width: 200px; /* Adjust width as needed */
+}
+
+.d-flex button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.d-flex button i {
+  font-size: 18px;
+  color: #888;
+  margin-right: 10px;
+}
+/* search-box */
+
