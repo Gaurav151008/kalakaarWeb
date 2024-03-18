@@ -58,6 +58,7 @@
   .buttons {
     display: flex;
     justify-content: space-between;
+    margin-top: 2em;
   }
   
   button1 {
@@ -68,7 +69,7 @@
     text-align: center;
     text-decoration: none;
     font-size: 1em;
-    margin: 0.5em;
+    margin: -0.5em;
     cursor: pointer;
     border-radius: 50px;
   }
