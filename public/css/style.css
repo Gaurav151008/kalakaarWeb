@@ -454,3 +454,97 @@ h1 {
 }
 /* search-box */
 
+/* landing girl */
+
+
+.section{
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.imgg{
+  width: 50%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  padding: 9%;
+  padding-right: 0px;
+  padding-top: 52px;
+  position: relative;
+}
+
+.imgg1{
+  width: 71%;
+  height: auto;
+  max-height: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+
+.imgg2{
+  width: 27%;
+  height: 83%;
+  position: absolute;
+  top: 10px;
+  left: 535px;
+  background-repeat: no-repeat; /* Prevent image tiling */
+  background-position: center;
+}
+
+/* landing girl */
+
+#parent-girl{
+  position: relative;
+}
+
+.container-girl{
+    margin: 70px 60px;
+    padding: 20px;
+    display: flex;
+  }
+  
+  .left-container{
+    /* flex: 1; */
+    height: 570px;
+    width: 660px;
+    padding: 48px;
+    background-color: #FFEEE8;
+    text-align: left;
+    color: #000;
+    border-radius: 12px;
+    margin-top: 100px;
+    background-repeat: no-repeat; /* Prevent image tiling */
+    background-position: center;
+}
+
+.connector-image {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  right: 50px;
+  top: -13px;
+}
+
+.connector-image img {
+  width: 57%;
+  height: auto;
+}
+
+.right-container{
+  /* flex: 1; */
+  padding: 64px;
+  padding-top: 180px;
+  background-color: #FFA888;
+  height: 570px;
+  width: 412px;
+  border-radius: 12px;
+  color: #000;
+  margin-left: 20px;
+}
+
+/* landing girl */
+
