@@ -450,7 +450,7 @@ h1 {
 .d-flex button i {
   font-size: 18px;
   color: #888;
-  margin-right: 10px;
+  margin-right: 60px;
 }
 /* search-box */
 
@@ -493,6 +493,25 @@ h1 {
   background-repeat: no-repeat; /* Prevent image tiling */
   background-position: center;
 }
+
+/* Landing boy */
+
+.container-boy{
+  margin: 70px 60px;
+  padding: 20px;
+  display: flex;
+}
+
+.left-container-boy{
+  height: 382px;
+  width: 790px;
+  background-color: #FFEEE8;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  padding: 48px;
+}
+
+/* Landing boy */
 
 /* landing girl */
 
