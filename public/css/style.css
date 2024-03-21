@@ -511,6 +511,10 @@ h1 {
   padding: 48px;
 }
 
+.img-boy{
+  border-top-left-radius: 0px; border-bottom-left-radius: 0px;
+}
+
 /* Landing boy */
 
 /* landing girl */
