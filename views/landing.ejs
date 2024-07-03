@@ -1,74 +1,81 @@
 <%- include('./header.ejs') %>
 <div class="main-container">
-    <div class="container">
+  <div class="container">
+    <div class="content-wrapper">
         <div class="text-content">
-            <h1>Empowering Creativity - </h1>
+            <h1>Empowering Creativity -</h1>
             <h2>Thrive with Kalakaar.</h2>
             <p>Connect with Opportunities, Showcase Your Talent, and Shape Your Future.</p>
             <div class="buttons">
-                <a style="text-decoration: none;" href="/signup"><button1>Get Started</button1></a>
+              <a style="text-decoration: none;" href="/signup"><button1>Get Started</button1></a>
+              <!-- <a href="/signup" class="cta-button">Get Started</a> -->
             </div>
         </div>
         <div class="image-content">
-            <img src="public/imgs/img.jpg">
+            <img src="public/imgs/img.jpg" alt="Kalakaar Illustration">
         </div>
     </div>
+</div>
     <!--Talent Cards -->
-    <div class="container">
-        <div class="row" style="width: 100%;">
-        <% for (let i = 0; i < 2; i++) { %>
-            <% for (let i = 0; i < 4; i++) { %>
-                    <div class="card h-100" style="background-color: #FFECEA; height: 138px !important; width: 255px; max-width: 100%; margin: 10px;">
-                        <div class="card-body" style="height: 100%;padding: 10px;">
-                        <h5 class="card-title" style="text-align: left; margin-top: 5%;">MMA Artist / Coach</h5>
-                        <div class="card-info" style="display: flex;    margin-top: 36px;
-                        justify-content: space-between; align-items: center;">
-                            <p class="card-text" style="color: #ff4500; margin-top: 3%; flex-direction: column;" ><i class="bi bi-star-fill">  </i>Featured</p>
-                            <p class="artist-count" style="color: #ff4500; margin-top: 3%; margin-left: 79px; flex-direction: column;">223 Artists Available</p>
-                        </div>
-                        </div>
+<div class="card-container">
+    <div class="card-grid">
+        <% for (let i = 0; i < 8; i++) { %>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">MMA Artist / Coach</h5>
+                    <div class="card-info">
+                        <p class="card-text featured"><i class="bi bi-star-fill"></i> Featured</p>
+                        <p class="artist-count">223 Artists Available</p>
                     </div>
-                <% } %>
-                <% } %>
+                </div>
             </div>
+        <% } %>
+    </div>
+</div>
 
-    </div>
-    <div class="container-boy">
-      <div class="left-container-boy" style="margin-top: 0px;">
-        <h1 style="font-weight: bold; color: #000;">This is How <span style="color: #ff4500;">Good Recruiters Find Good Artists.</span></h1>
-        <p style="color: #000; font-size: medium;">This represents the current paradigm of innovation.</p>
-        <p style="color: #000; font-size: medium;"><i class="bi bi-tools" style=" padding-right: 20px;"></i>Access skilled professionals to address your expertise needs.</p>
-        <p style="color: #000; font-size: medium;"><i class="bi bi-person-workspace" style=" padding-right: 20px;"></i>Take charge of your workflow: recruit and compensate your talent.</p>
-        <p style="color: #000; font-size: medium;"><i class="bi bi-headset" style=" padding-right: 20px;"></i>Partner with KalaKaar for end-to-end support.</p>
-      </div>
-      <div class="image-boy">
-        <img src="/public/imgs/img-boy.png" alt="Image boy" style="border-top-left-radius: 0px; border-bottom-left-radius: 0px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; width: 85%;"> 
-      </div>
-    </div>
+<!-- Landing boy -->
+
+<div class="container-boy">
+  <div class="left-container-boy">
+    <h1>This is How <span>Good Recruiters Find Good Artists.</span></h1>
+    <p>This represents the current paradigm of innovation.</p>
+    <p><i class="bi bi-tools icon"></i>Access skilled professionals to address your expertise needs.</p>
+    <p><i class="bi bi-person-workspace icon"></i>Take charge of your workflow: recruit and compensate your talent.</p>
+    <p><i class="bi bi-headset icon"></i>Partner with KalaKaar for end-to-end support.</p>
+  </div>
+  <div class="image-boy">
+    <img src="/public/imgs/img-boy.png" alt="Image boy">
+  </div>
+</div>
+
+<!-- Landing Boy -->
 
     <!-- Landing Girl -->
 
     <div class="container-girl" id="parent-girl">
-      <div class="left-container">
-        <h1 style="font-weight: bold;">Why Buisness turn to Kalakaar?</h1>
-        <h3 style="margin-top: 50px;"><i class="bi bi-star-fill">   </i>Proof of quality</h3>
-        <p style="color: #000; font-size: medium; padding: 0 40px;">Check any pro's work samples, client reviews, and identity verification</p>
-        <h3><i class="bi bi-star-fill">  </i>No cost until you hire</h3>
-        <p style="color: #000; font-size: medium; padding: 0 40px;">Interview potential fits for your job, negotiate rates, <br>and only pay for work you approve.</p>
-        <h3><i class="bi bi-star-fill">  </i>Safe and secure</h3>
-        <p style="color: #000; font-size: medium; padding: 0 40px;">Focus on your work knowing we help protect your data and privacy. We're here with 24/7 support if you need it.</p>
+      <div class="left-container" style="color: #ff4500;">
+        <h1 style="color: #000;">Why Business turn to Kalakaar?</h1>
+        <div class="feature">
+          <h3><i class="bi bi-star-fill"></i> Proof of quality</h3>
+          <p>Check any pro's work samples, client reviews, and identity verification</p>
+        </div>
+        <div class="feature">
+          <h3><i class="bi bi-star-fill"></i> No cost until you hire</h3>
+          <p>Interview potential fits for your job, negotiate rates, and only pay for work you approve.</p>
+        </div>
+        <div class="feature">
+          <h3><i class="bi bi-star-fill"></i> Safe and secure</h3>
+          <p>Focus on your work knowing we help protect your data and privacy. We're here with 24/7 support if you need it.</p>
+        </div>
       </div>
-
       <div class="right-container">
         <h3>We're the world's only talent marketplace</h3>
-        <p style="color: #000; font-size: medium; margin-top: 20px;"><i class="bi bi-star-fill" style="color: #ff4500;">  </i>Supplying Artist & Recruiters with <span style="margin-left: 20px;">Kalakaar</span></p>
+        <p style="color: #FFEEE8;"><i class="bi bi-star-fill"></i> Supplying Artist & Recruiters with <span>Kalakaar</span></p>
       </div>
-
-        <div class="connector-image">
-          <img src="/public/imgs/imgg3.png" alt="Connector Image">
-        </div>
-
-    </div>  
+      <div class="connector-image">
+        <img src="/public/imgs/imgg3.png" alt="Connector Image">
+      </div>
+    </div>
 
     <!-- Landing Girl -->
 
