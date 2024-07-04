@@ -10,10 +10,62 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+      .custom-nav-link {
+          color: #FFEEE8 !important;
+          transition: color 0.3s ease;
+      }
+
+      .custom-nav-link:hover {
+          color: #FF5733 !important;
+      }
+      .form-control::placeholder{
+        color:#fff !important ;
+      }
+      .navbar-brand-container {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+      }
+
+      .navbar-toggler {
+          margin-left: auto; /* To ensure the toggler stays on the right */
+      }
+
+      .sign-btn{
+        display: flex;
+        justify-content: space-around;
+        gap: 20px;
+        flex-wrap:wrap;
+        padding: 20px;
+      }
+
+      .sign-btn .btn{
+        flex: 1 !important;
+      }
+
+      @media (max-width: 1200px){
+        .navbar-brand{
+          margin: 0 0 0 150% !important 
+        }
+      }
+
+      @media (max-width: 768px){
+        .navbar-brand{
+          margin: 0 0 0 150% !important 
+        }
+      }
+      @media (max-width: 600px){
+        .navbar-brand{
+          margin: 0 0 0 115% !important 
+        }
+      }
+    </style>
   </head>
   <body>
     <script src="public/js/script.js"></script>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" style="background-color: rgb(0 0 0) !important;">
+    <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" style="background-color: rgb(0 0 0) !important;">
         <div class="container-fluid">
           <a href="home.ejs">
             <img src="public/imgs/KalaKaar.png" alt="Kalakaar Logo" class="navbar-brand" style="width: 170px; height: 75px;"/>
@@ -38,9 +90,46 @@
             <form class="d-flex" role="search" >
               <input id="searchBox" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 250px; border-radius: 45px; margin-right: 3.5rem !important; --bs-border-color: #fff; --bs-body-bg: #000;">
               <button type="submit"><i class="bi bi-search" style="color: #fff;"></i></button>
-            </form>
-            <% if(!loggedin) { %>
+            </form> -->
+            <!-- <% if(!loggedin) { %>
               <a href="/signin">
+                <button type="button" class="btn btn-outline-danger" style="--bs-btn-color: #fff;
+                --bs-btn-border-color: #000;
+                --bs-btn-hover-color: #fff;
+                --bs-btn-hover-bg: #000;
+                --bs-btn-hover-border-color: #ff4500;
+                --bs-btn-focus-shadow-rgb: 25, 135, 84;
+                --bs-btn-active-color: #fff;
+                --bs-btn-active-bg: #ff4500;
+                --bs-btn-active-border-color: #198754;
+                --bs-btn-active-shadow: #ff703c;
+                --bs-btn-disabled-color: #198754;
+                --bs-btn-disabled-bg: transparent;
+                --bs-btn-disabled-border-color: #198754;
+                --bs-gradient: none;
+                border-radius: 45px;
+              ">Signup</button>
+              </a>
+              <a href="/signup">
+                <button type="button" class="btn btn-outline-danger" style="background: #ff4500;
+                --bs-btn-color: #fff;
+                --bs-btn-border-color: #ff703c;
+                --bs-btn-hover-color: #fff;
+                --bs-btn-hover-bg: #ff4500;
+                --bs-btn-hover-border-color: #ff4500;
+                --bs-btn-focus-shadow-rgb: 25, 135, 84;
+                --bs-btn-active-color: #fff;
+                --bs-btn-active-bg: #198754;
+                --bs-btn-active-border-color: #198754;
+                --bs-btn-active-shadow: #ff703c;
+                --bs-btn-disabled-color: #198754;
+                --bs-btn-disabled-bg: transparent;
+                --bs-btn-disabled-border-color: #198754;
+                --bs-gradient: none;
+                border-radius: 45px;
+              ">Signin</button>
+              </a> -->
+              <!-- <a href="/signin">
                 <button class="btn btn-outline-success" type="submit" style="margin-right: .5rem !important;
                   --bs-btn-color: #fff;
                   --bs-btn-border-color: #000;
@@ -78,8 +167,8 @@
                   --bs-gradient: none;
                   border-radius: 45px;
                 ">Signup</button>
-              </a>
-            <% } else { %>
+              </a> -->
+            <!-- <% } else { %>
               <ul class="navbar-nav me-auto" style="font-weight: 500; font-size: large;">
                 <li class="nav-item" style="margin-right: 0px;">
                   <% if(user == "recruiter") { %>
@@ -95,10 +184,79 @@
             <% } %>
           </div>
         </div>
+      </nav> -->
+
+      <nav class="navbar navbar-dark bg-dark" style="background-color: black !important;">
+        <div class="container-fluid" >
+          <a href="home.ejs" >
+            <img src="public/imgs/KalaKaar.png" alt="Kalakaar Logo" class="navbar-brand" style="width: 170px; height: 70px; margin: 0 0 0 300%;"/>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation" style="color: #ff4500 !important;">
+            <span class="navbar-toggler-icon" style="color: #ff4500;"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel" style="    background-color: black !important;">
+            <div class="offcanvas-header" style="color: #ff4500 !important;">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Kalakaar</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" >
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#" style="color: #FFEEE8 !important;">Find Talent</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" style="color: #FFEEE8 !important;">Find Work</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" style="color: #FFEEE8 !important;">Why Kalakaar?</a>
+                </li>
+                
+              </ul>
+              <form class="d-flex mt-3" role="search">
+                <input class="form-control me-2" type="search" aria-label="Search" style="background-color: black !important; color: #FFA888 !important; border: 1px solid #ff4500 !important;">
+                <button class="btn btn-success" type="submit" style="--bs-btn-hover-bg: #ff4500 !important;">Search</button>
+              </form>
+            </div>
+            
+            <div class="sign-btn">
+
+              <button type="button" class="btn btn-primary btn-lg" style="--bs-btn-color: #fff !important;
+              --bs-btn-bg: #000 !important;
+              --bs-btn-border-color: #ff4500;
+              --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #ff4500;
+              --bs-btn-hover-border-color: #ff4500;
+              --bs-btn-focus-shadow-rgb: 25, 135, 84;
+              --bs-btn-active-color: #fff;
+              --bs-btn-active-bg: #ff4500;
+              --bs-btn-active-border-color: #198754;
+              --bs-btn-active-shadow: #ff703c;
+              --bs-btn-disabled-color: #198754;
+              --bs-btn-disabled-bg: transparent;
+              --bs-btn-disabled-border-color: #198754;
+              --bs-gradient: none;"><a href="/signin" style="text-decoration: none; color: #fff;">Signin</a></button>
+              <button type="button" class="btn btn-secondary btn-lg" style="background: #ff4500;
+              --bs-btn-color: #fff;
+              --bs-btn-border-color: #ff703c;
+              --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #ff4500;
+              --bs-btn-hover-border-color: #ff4500;
+              --bs-btn-focus-shadow-rgb: 25, 135, 84;
+              --bs-btn-active-color: #fff;
+              --bs-btn-active-bg: #198754;
+              --bs-btn-active-border-color: #198754;
+              --bs-btn-active-shadow: #ff703c;
+              --bs-btn-disabled-color: #198754;
+              --bs-btn-disabled-bg: transparent;
+              --bs-btn-disabled-border-color: #198754;
+              --bs-gradient: none;"><a href="/signup" style="text-decoration: none; color: #fff;">Signup</a></button>
+            </div>
+          </div>
+        </div>
       </nav>
       
-
 <div class="line"></div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
