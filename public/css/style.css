@@ -705,11 +705,18 @@ h1 {
 
 /* Landing boy */
 
+.boy-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+}
+
 .container-boy {
   display: flex;
   max-width: 1200px;
   height: 382px; /* Set a fixed height */
-  margin: 80px 40px 40px 40px;
+  margin: 40px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   overflow: hidden;
@@ -775,7 +782,6 @@ p {
     height: 200px;
   }
 }
-
 /* Landing boy */
 
 /* landing girl */
