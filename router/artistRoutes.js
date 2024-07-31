@@ -4,6 +4,7 @@ const artists = require("../models/artists");
 const recruiters = require("../models/recruiter");
 const Posts = require("../models/posts");
 const work = require('../models/work');
+const category = require('../models/category');
 const applied = require('../models/applied');
 
 //signup for artist
@@ -182,17 +183,17 @@ artist_route.get("/uploadworkform",(req,res)=>{
   
 artist_route.post("/uploadworksubmit", async (req, res) => {
     //get details
-    
+    console.log("here");
     const newWork = new work({
         title: req.body.title,
         description: req.body.description,
         location: req.body.location,
-        duration: req.body.duration,
+        duration: req.body.duration,    
         budget: req.body.budget,
         date: req.body.date,
         recId: req.session.userId,
     });
-
+    console.log(newWork);
     newWork.save()
     .then(() => {
         req.session.message = {
@@ -203,6 +204,7 @@ artist_route.post("/uploadworksubmit", async (req, res) => {
         res.redirect("/");
     })
     .catch((err) => {
+        console.log(err);
         res.json({ message: err.message });
         res.redirect("/signin");
     });
@@ -268,9 +270,10 @@ artist_route.get('/', async (req,res)=>{
 //home
 artist_route.get('/home', async (req,res)=>{
     try{
-        // const allCategory = await collection.find().toArray();
+        // const allCategory = await category.find().toArray();  
+        const allWorks = await work.find().toArray();
 
-        res.render("artistView/home",{ allWorks, allCategory });
+        res.render("artistView/home",{ allWorks });
     }catch (err) {
         console.log(err);
     }

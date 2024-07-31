@@ -1,28 +1,39 @@
 <%- include('../header.ejs') %>
-<div class="main-container" style="padding: 50px;">
-
-    <div>
-        <h1 style="color: white;">Browse Work</h1>
-        <h4 style="color: #FF703C;">Looking for Work?<span style="color: white;"> Browse jobs</span></h4>
-    </div>
-    <% for (let i = 0; i < 2; i++) { %>
-        <div class="row" style="margin-top: 20px;margin-bottom: 50px;">
-            <% for (let i = 0; i < 3; i++) { %>
-                    <button class="btn-card btn-primary" data-bs-toggle="modal" data-bs-target="#myModal<%= i %>">
-                        <h2 class="title"><%= allApplication[i].title %> <img src="/public/imgs/applied.png" alt="Description of the image" class="appliedjobsimg"></h2>
-                        <div class="details">
-                            <div class="prow">  
-                                <p>Duration: <%= allApplication[i].duration %></p>
-                                <p>Budget: <%= allApplication[i].budget %></p>
-                            </div>
-                            <div class="prow">
-                                <p>Location: <%= allApplication[i].location %></p>
-                                <p>Date: <%= allApplication[i].date %></p>
-                            </div>
-                        </div>
-                    </button>
-                <% }  %>
-            </div>
-        <% } %>
-        <%- include('../footer.ejs') %>
-        
+<div class="main-container" style="padding: 50px">
+  <div>
+    <h1 style="color: white">Browse Work</h1>
+    <h4 style="color: #ff703c">
+      Looking for Work?<span style="color: white"> Browse jobs</span>
+    </h4>
+  </div>
+  <% for (let i = 0; i < 2; i++) { %>
+  <div class="row" style="margin-top: 20px; margin-bottom: 50px">
+    <% for (let i = 0; i < 3; i++) { %>
+    <button
+      class="btn-card btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#myModal<%= i %>"
+    >
+      <h2 class="title">
+        <%= allApplication[i].title %>
+        <img
+          src="/public/imgs/applied.png"
+          alt="Description of the image"
+          class="appliedjobsimg"
+        />
+      </h2>
+      <div class="details">
+        <div class="prow">
+          <p>Duration: <%= allApplication[i].duration %></p>
+          <p>Budget: <%= allApplication[i].budget %></p>
+        </div>
+        <div class="prow">
+          <p>Location: <%= allApplication[i].location %></p>
+          <p>Date: <%= allApplication[i].date %></p>
+        </div>
+      </div>
+    </button>
+    <% } %>
+  </div>
+  <% } %> <%- include('../footer.ejs') %>
+</div>

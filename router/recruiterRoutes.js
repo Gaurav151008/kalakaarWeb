@@ -21,9 +21,9 @@ rec_route.get("/profile", async (req, res) => {
 //home
 rec_route.get('/home', async (req,res)=>{
     try{
-        const allWorks = await collection.find({}).toArray();
+        const allWorks = await work.find({}).toArray();
         const allCategory = await collection.find({}).toArray();
-
+        console.log(allWorks,allCategory);
         res.render("recruiterView/home",{ allWorks, allCategory });
     }catch (err) {
         console.log(err);
