@@ -1,64 +1,46 @@
 <%- include('../header.ejs') %>
 <div class="main-container-upload-pic">
-<div class="container-upload-pic">
-    <div class="logo-head">
-        <img src="public/imgs/img7.png" alt="Kalakaar Logo" class="logo">
-    </div>
-    <div class="form-container-upload-pic">
-        <form action="/uploadprofile" method="post">
-            <div class="span-upload-pic">
-                <span><h3>Upload Profile:</h3></span>
-                <span><h3>Upload Post:</h3></span>
-            </div>
-            <form method="post" enctype="multipart/form-data">
+    <div class="container-upload-pic">
+        <div class="logo-head">
+            <img src="public/imgs/img7.png" alt="Kalakaar Logo" class="logo">
+        </div>
+        <div class="form-container-upload-pic">
+            <form action="/uploadprofile" method="post" enctype="multipart/form-data">
+                <!-- <div class="span-upload-pic">
+                    <span><h3>Upload Profile:</h3></span>
+                    <span><h3>Upload Post:</h3></span>
+                </div> -->
                 <div class="upload-img">
-                    <input type="file" id="fileInput" accept="image/*" name="profile" style="display:none;"/>
-                        <label for="fileInput" id="uploadButton">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-file-earmark-image" viewBox="0 0 16 16" style="color: #ff703c;">
-                                <path d="M6.502 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
-                                <path d="M14 14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zM4 1a1 1 0 0 0-1 1v10l2.224-2.224a.5.5 0 0 1 .61-.075L8 11l2.157-3.02a.5.5 0 0 1 .76-.063L13 10V4.5h-2A1.5 1.5 0 0 1 9.5 3V1z"/>
-                            </svg>
-                        </label>
-                    <input type="file" id="videoInput" accept="video/*" name="video" style="display:none;"/>
-                        <label for="videoInput" id="uploadButton">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-file-earmark-image" viewBox="0 0 16 16" style="color: #ff703c;">
-                                <path d="M6.502 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
-                                <path d="M14 14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zM4 1a1 1 0 0 0-1 1v10l2.224-2.224a.5.5 0 0 1 .61-.075L8 11l2.157-3.02a.5.5 0 0 1 .76-.063L13 10V4.5h-2A1.5 1.5 0 0 1 9.5 3V1z"/>
-                            </svg>
-                        </label>
+                    <button class="container-btn-file">
+                        Upload Profile
+                        <input class="file" name="image" type="file" accept="image/*"/>
+                    </button>                      
+                    <button class="container-btn-file">
+                        Upload Post
+                        <input class="file" name="video" type="file" accept="video/*"/>
+                    </button>                      
                 </div>
-            <div class="section-upload-pic">
-                <div class="section1-upload-pic">
-                    <h3>
-                        Name:
-                    </h3>
-                    <input class="post-upload-pic" type="text" id="name"  placeholder="Sunny Patel" required>
-                    <h3>
-                        Location:
-                    </h3>
-                    <input class="post-upload-pic" type="text" id="location" name="location" placeholder="Mumbai - Vadodara ?" required>
+                <div class="section-upload-pic">
+                    <div class="section1-upload-pic">
+                        <h3>Name:</h3>
+                        <input class="post-upload-pic" type="text" id="name" placeholder="Sunny Patel" required>
+                        <h3>Location:</h3>
+                        <input class="post-upload-pic" type="text" id="location" name="location" placeholder="Mumbai - Vadodara ?" required>
+                    </div>
+                    <div class="section2-upload-pic">
+                        <h3>Profession:</h3>
+                        <input class="post-upload-pic" type="text" id="profession" name="profession" placeholder="Singer, Dancer, Poet ??" required>
+                        <h3>Hourly Charge:</h3>
+                        <input class="post-upload-pic" type="number" name="budget" placeholder="1000-2000 Rs" required>
+                    </div>
                 </div>
-                <div class="section2-upload-pic">
-                    <h3>
-                        Profession:
-                    </h3>
-                    <input class="post-upload-pic" type="text" id="profession" name="profession" placeholder="Singer, Dancer, Poet ??" required>
-                    <h3>
-                        Hourly Charge:
-                    </h3>
-                    <input class="post-upload-pic" type="number" name="budget" placeholder="1000-2000 Rs" required>
-                </div>
-            </div>
-        <h3>
-            Description:
-        </h3>
-        <textarea class="post1-upload-pic" type="text-field" name="description" placeholder="Define yourself." required></textarea>
-        <h3>
-            Achivements:
-        </h3>
-            <textarea class="post1-upload-pic" type="text-field" name="achivements" placeholder="Let us know what you've achieved till date." required></textarea>
-            <button class="donebtn" type="submit">Upload</button>
-        </form>
+                <h3>Description:</h3>
+                <textarea class="post1-upload-pic" name="description" placeholder="Define yourself." required></textarea>
+                <h3>Achievements:</h3>
+                <textarea class="post1-upload-pic" name="achievements" placeholder="Let us know what you've achieved till date." required></textarea>
+                <button class="donebtn" type="submit">Upload</button>
+            </form>
+        </div>
     </div>
 </div>
 <%- include('../footer.ejs') %>

@@ -508,29 +508,36 @@ ul li{
   }
 
   /* upload profile */
-  .container-upload-pic {
-    background-color: #000;
-    padding: 50px 467px;
-    border-radius: 25px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 100%; /* Adjust width as needed */
-  }
-  
-  .form-container-upload-pic{
+  .main-container-upload-pic {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container-upload-pic {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container-upload-pic {
     background-color: #fff;
     padding: 30px;
-    border-radius:20px;
+    border-radius: 20px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     width: 775px;
     color: #000;
     max-width: 100%; /* Adjust width as needed */
-  }
-  
-  textarea{
+}
+
+textarea {
     height: 214px;
-  }
-  
-  .post-upload-pic{
+}
+
+.post-upload-pic {
     width: 130%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -538,23 +545,23 @@ ul li{
     box-sizing: border-box;
     margin-bottom: 15px;
     background-color: #FFECEA;
-  }
-  
-  .donebtn {
+}
+
+.donebtn {
     margin-left: 25%;
     margin-top: 5%;
     width: 50%;
     background-color: #ff4500;
-    color:white;
+    color: white;
     padding: 10px 15px;
     border: 2px solid #ff4500; 
     border-color: #ff4500;
     border-radius: 45px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .post1-upload-pic{
+    transition: all 0.3s ease-in-out;
+}
+
+.post1-upload-pic {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -563,34 +570,183 @@ ul li{
     margin-bottom: 15px;
     background-color: #FFECEA;
     height: 123px;
-  }
-  .section-upload-pic{
+}
+
+.section-upload-pic {
     display: flex;
     margin-top: 30px;
+}
 
-  }
-  .section-upload-pic .post{
-    width: 130%
-  }
-  .section2-upload-pic{
+.section-upload-pic .post {
+    width: 130%;
+}
+
+.section2-upload-pic {
     margin-left: 30%;
-  }
-  .upload-img{
+}
+
+.upload-img {
+    display: flex;
+    justify-content:space-between;
+}
+
+.logo-head .logo {
+    padding: 2px 130px;
+    width: 100%;
+    height: 100%;
+}
+
+.span-upload-pic {
+    display: flex;
+    gap: 241px;
+}
+
+@media (max-width: 1200px) {
+    .upload-img {
+        gap: 200px;
+    }
+
+    .section2-upload-pic {
+        margin-left: 20%;
+    }
+
+    .span-upload-pic {
+        gap: 120px;
+    }
+}
+
+@media (max-width: 992px) {
+    .form-container-upload-pic {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .section-upload-pic {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .section2-upload-pic {
+        margin-left: 0;
+    }
+
+    .upload-img {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .span-upload-pic {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .donebtn {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .post-upload-pic {
+        width: 100%;
+    }
+
+    .section1-upload-pic, .section2-upload-pic {
+        width: 100%;
+    }
+
+    .upload-img {
+        gap: 10px;
+    }
+
+    .span-upload-pic {
+        gap: 10px;
+    }
+
+    .donebtn {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .logo-head .logo {
+        padding: 2px 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-head .logo {
+        padding: 2px 20px;
+    }
+
+    .donebtn {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .post1-upload-pic, .post-upload-pic {
+        font-size: 0.9em;
+    }
+
+    textarea {
+        height: 150px;
+    }
+}
+
+.container-btn-file {
   display: flex;
-  gap: 378px;
-  }
-  
-  .logo-head .logo{
-  padding: 2px 130px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff4500;
+  color: #fff;
+  border-style: none;
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  overflow: hidden;
+  z-index: 1;
+  /* box-shadow: 4px 8px 10px -3px rgba(0, 0, 0, 0.356);  */
+  transition: all 250ms;
+}
+.container-btn-file input[type="file"] {
+  position: absolute;
   width: 100%;
   height: 100%;
-  }
-  
-  .span-upload-pic{
-  display: flex;
-  gap: 241px;
-  }
-  
+  opacity: 0;
+  cursor: pointer;
+}
+.container-btn-file > svg {
+  margin-right: 1em;
+}
+.container-btn-file::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0;
+  border-radius: 0.5em;
+  background-color: #ff703c;
+  z-index: -1;
+  transition: all 350ms;
+}
+.container-btn-file:hover::before {
+  width: 100%;
+}
+
+.file-preview {
+  margin-top: 10px;
+}
+
+.file-preview img {
+  max-width: 100%;
+  height: auto;
+}
+
+.file-preview video {
+  max-width: 100%;
+  height: auto;
+}
+
+
 
   /* profile */
   .profile{
