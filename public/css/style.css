@@ -631,7 +631,7 @@ textarea {
     }
 
     .upload-img {
-        flex-direction: column;
+        flex-direction: row;
         gap: 20px;
     }
 
@@ -677,6 +677,11 @@ textarea {
 @media (max-width: 480px) {
     .logo-head .logo {
         padding: 2px 20px;
+    }
+
+    .upload-img {
+      flex-direction: column;
+      gap: 20px;
     }
 
     .donebtn {

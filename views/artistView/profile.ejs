@@ -1,42 +1,118 @@
 <%- include('../header.ejs') %>
-<div class="main-container">
-    <div class="container">
-        
-        
-        <div class="image-container">
-            <img style="width: 79%;
-            height: auto;" src="<%= artist.profilephoto %>" >
+<!-- <div class="main-container">
+    <div class="profile-container" style="display: flex; flex-direction: column; align-items: center; text-align: center; color: white;">
+
+        Profile Image Section
+        <div class="image-container" style="margin-bottom: 20px;">
+            <img src="/public/imgs/img.jpg" alt="Profile Photo" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
         </div>
-        <div class="content-container">
-            <h1><%= artist.fullname %></h1>
-            <h2 style="color: white;"><%= artist.profession %><h2>
-                <h2 style="color: white;"><%= artist.location %> based</h2>
-                <h2 style="color: white;">Hourly rate: <%= artist.budget %></h2>
-                <h4 style="padding: 2px 180px; margin-left: -180px;"><%= artist.description %></h4>
-            </div>
-          
+
+        Profile Details Section
+        <div class="content-container" style="width: 80%; max-width: 600px; margin-bottom: 30px;">
+            <h1 style="margin: 10px 0;"><%= artist.fullname %></h1>
+            <h2 style="color: #ff4500; margin: 5px 0;"><%= artist.profession %></h2>
+            <h3 style="margin: 5px 0;"><%= artist.location %> based</h3>
+            <h3 style="margin: 5px 0;">Hourly rate: <%= artist.budget %> Rs</h3>
+            <p style="margin: 15px 0; line-height: 1.5;"><%= artist.description %></p>
         </div>
-        <div class="container2", style="background-color: black; padding: 70px 155px;margin-top: -3%;" >
-            <div class="line"></div>
-            
-        <h1 style="color: #ff4500;margin-top: 60px; ">MY PERSONAL ACHIVEMENTS!!</h1>
-        <div class="info">
-            <ul style="color: #fff;">
-                <li><h2>Featured Dancer in Award-Winning Music Video <span style="color: #ff4500;">(2022)</span></h2></li>
-                <li><h2>Mentored at Youth Hip Hop Workshop <span style="color: #ff4500;">(2021)</span></h2></li>
-                <li><h2>Studied under Renowned Hip Hop Choreographer <span style="color: #ff4500;">(2020)</span></h2></li>  
+
+        Achievements Section
+        <div class="achievements-container" style="width: 80%; max-width: 600px; margin-bottom: 30px;">
+            <h1 style="color: #ff4500; margin-bottom: 20px;">MY PERSONAL ACHIEVEMENTS!!</h1>
+            <ul style="list-style-type: none; padding: 0; color: #fff; text-align: left;">
+                <li><h4>Featured Dancer in Award-Winning Music Video <span style="color: #ff4500;">(2022)</span></h4></li>
+                <li><h4>Mentored at Youth Hip Hop Workshop <span style="color: #ff4500;">(2021)</span></h4></li>
+                <li><h4>Studied under Renowned Hip Hop Choreographer <span style="color: #ff4500;">(2020)</span></h4></li>  
             </ul>
         </div>
-    </div>
-    <div class="container" style="display: block !important;">
-        <div style="display: block; width: 100%;">
-            <h1 style="color: white;">Post</h1>
+
+        Profile Video Section 
+        <div class="video-container" style="width: 80%; max-width: 600px; margin-bottom: 30px;">
+            <h1 style="color: white; margin-bottom: 20px;">Post</h1>
+            <div class="openVideo">
+                <video width="100%" height="auto" controls>
+                    <source src="<%= artist.profilevideo %>" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
-        <div class="openVideo">
-            <video width="620" height="340" controls>
-                <source src="<%= artist.profilevideo %>" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-        </div>
+
     </div>
+</div> -->
+
+<div class="profile-container">
+  <div class="profile-header">
+    <div class="profile-pic">
+      <img src="/public/imgs/img.jpg" alt="Profile Picture" />
+    </div>
+    <div class="profile-info">
+      <div class="profile-name">
+        <h2><%= artist.fullname %></h2>
+      </div>
+      <div class="profile-stats">
+        <div><strong style="color: #ff4500;">Profession :</strong> <%= artist.profession %></div>
+        <div><strong style="color: #ff4500;">Location :</strong> <%= artist.location %></div>
+        <div>
+          <strong style="color: #ff4500;">Rate :</strong> <%= artist.budget %>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-currency-rupee"
+            viewBox="0 0 16 16"
+            style="color: #ff4500;"
+          >
+            <path
+              d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="profile-bio">
+        <p><%= artist.description %></p>
+        <h4 class="profile-bio-h4">Achievements</h4>
+        <p><%= artist.achievements %></p>
+      </div>
+    </div>
+  </div>
+  <div class="profile-posts">
+    <div class="post">
+      <video controls>
+        <source src="<%= artist.profilevideo %>" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <!-- <div class="post">
+      <video controls>
+        <source src="your-video-url.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="post">
+      <video controls>
+        <source src="your-video-url.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="post">
+      <video controls>
+        <source src="your-video-url.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="post">
+      <video controls>
+        <source src="your-video-url.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="post">
+      <video controls>
+        <source src="your-video-url.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div> -->
+  </div>
+</div>
 <%- include('../footer.ejs') %>
