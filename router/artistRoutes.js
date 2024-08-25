@@ -62,7 +62,7 @@ artist_route.post('/submitForm', async (req,res)=>{
                 type: "success",
                 message: "artist registered successfully",
             };
-            res.redirect("/sigin");
+            res.redirect("/signin");
         }).catch((err)=>{
             res.json({ message: err.message });
         });
@@ -284,5 +284,18 @@ artist_route.get('/home', async (req,res)=>{
 artist_route.get('/openCategory/:id', (req,res)=>{
 
 });
+
+artist_route.get('/logout', async (req,res)=>{
+    
+    try {
+        req.session.destroy();
+        res.redirect('/signin');
+        
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Somthing went wrong'); // Handle errors gracefully
+    }
+    
+})
 
 module.exports = artist_route;

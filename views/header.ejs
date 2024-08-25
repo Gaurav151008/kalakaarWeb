@@ -49,7 +49,7 @@
       @media (max-width: 1200px){
         .navbar-brand{
           left: 50%;
-          transform: translateX(-50%);
+          /* transform: translateX(-50%); */
         }
       }
 
@@ -108,6 +108,7 @@
             </div>
             
             <div class="sign-btn">
+              <% if(!loggedin) { %>
 
               <button type="button" class="btn btn-primary btn-lg" style="--bs-btn-color: #fff !important;
               --bs-btn-bg: #000 !important;
@@ -139,7 +140,42 @@
               --bs-btn-disabled-bg: transparent;
               --bs-btn-disabled-border-color: #198754;
               --bs-gradient: none;"><a href="/signup" style="text-decoration: none; color: #fff;">Signup</a></button>
+    	      <% } else { %>
+              <button type="button" class="btn btn-primary btn-lg" style="--bs-btn-color: #fff !important;
+              --bs-btn-bg: #000 !important;
+              --bs-btn-border-color: #ff4500;
+              --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #ff4500;
+              --bs-btn-hover-border-color: #ff4500;
+              --bs-btn-focus-shadow-rgb: 25, 135, 84;
+              --bs-btn-active-color: #fff;
+              --bs-btn-active-bg: #ff4500;
+              --bs-btn-active-border-color: #198754;
+              --bs-btn-active-shadow: #ff703c;
+              --bs-btn-disabled-color: #198754;
+              --bs-btn-disabled-bg: transparent;
+              --bs-btn-disabled-border-color: #198754;
+              --bs-gradient: none;"><a href="/profile" style="text-decoration: none; color: #fff;">Profile</a></button>
+              <button type="button" class="btn btn-secondary btn-lg" style="background: #ff4500;
+              --bs-btn-color: #fff;
+              --bs-btn-border-color: #ff703c;
+              --bs-btn-hover-color: #fff;
+              --bs-btn-hover-bg: #ff4500;
+              --bs-btn-hover-border-color: #ff4500;
+              --bs-btn-focus-shadow-rgb: 25, 135, 84;
+              --bs-btn-active-color: #fff;
+              --bs-btn-active-bg: #198754;
+              --bs-btn-active-border-color: #198754;
+              --bs-btn-active-shadow: #ff703c;
+              --bs-btn-disabled-color: #198754;
+              --bs-btn-disabled-bg: transparent;
+              --bs-btn-disabled-border-color: #198754;
+              --bs-gradient: none;"><a href="/logout" style="text-decoration: none; color: #fff;">Logout</a></button>
+          
+              <% } %>
+
             </div>
+
           </div>
         </div>
       </nav>
