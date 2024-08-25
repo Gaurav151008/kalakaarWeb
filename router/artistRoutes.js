@@ -81,7 +81,7 @@ artist_route.post('/verifySignin', async (req,res)=>{
     try{
         const email = req.body.email;
         const password = req.body.password;
-        console.log(email,password);
+        console.log(email, "Password:",password);
         const artist = await artists.findOne({$and: [{ email }, { password }],}); // Replace with your authentication logic
         const recruiter = await recruiters.findOne({$and: [{ email }, { password }],}); // Replace with your authentication logic
 
@@ -120,7 +120,7 @@ artist_route.get("/profile", async (req, res) => {
         {
             if(artist.completed){
                 console.log("here");
-                res.render("artistView/profile",{ artist });
+                res.render("artistView/uploadprofile",{ artist });
             }
             else{
                 res.render("artistView/uploadprofile");
