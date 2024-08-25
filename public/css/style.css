@@ -540,11 +540,11 @@ textarea {
 .post-upload-pic {
     width: 130%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 15px;
+    border: 1px solid #ff4500;
+    border-radius: 5px;
     box-sizing: border-box;
     margin-bottom: 15px;
-    background-color: #FFECEA;
+    background-color: transparent;
 }
 
 .donebtn {
@@ -564,16 +564,21 @@ textarea {
 .post1-upload-pic {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 15px;
+    border: 1px solid #ff4500;
+    border-radius: 5px;
     box-sizing: border-box;
     margin-bottom: 15px;
-    background-color: #FFECEA;
+    background-color: transparent;
     height: 123px;
+}
+
+.file{
+  border-color: #FF4500;
 }
 
 .section-upload-pic {
     display: flex;
+    justify-content: space-between;
     margin-top: 30px;
 }
 
@@ -581,9 +586,9 @@ textarea {
     width: 130%;
 }
 
-.section2-upload-pic {
+/* .section2-upload-pic {
     margin-left: 30%;
-}
+} */
 
 .upload-img {
     display: flex;
@@ -606,9 +611,9 @@ textarea {
         gap: 200px;
     }
 
-    .section2-upload-pic {
+    /* .section2-upload-pic {
         margin-left: 20%;
-    }
+    } */
 
     .span-upload-pic {
         gap: 120px;

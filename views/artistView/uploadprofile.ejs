@@ -1,43 +1,148 @@
 <%- include('../header.ejs') %>
 <div class="main-container-upload-pic">
-    <div class="container-upload-pic">
-        <div class="logo-head">
-            <h1 style="color: #ff4500; margin-bottom: 5%;">Upload your Profile</h1>
-        </div>
-        <div class="form-container-upload-pic">
-            <form action="/uploadprofile" method="post" enctype="multipart/form-data">
-                <div class="upload-img">
-                    <button class="container-btn-file">
+  <div class="container-upload-pic">
+    <div class="logo-head">
+      <h1 style="color: #ff4500; margin-bottom: 5%">Upload your Profile</h1>
+    </div>
+    <div class="form-container-upload-pic">
+      <form action="/uploadprofile" method="post" enctype="multipart/form-data">
+        <div class="upload-img">
+          <!-- <button class="container-btn-file">
                         Upload Profile
                         <input class="file" name="profile" type="file" accept="image/*"/>
                     </button>                      
                     <button class="container-btn-file">
                         Upload Post
                         <input class="file" name="video" type="file" accept="video/*"/>
-                    </button>                      
-                </div>
-                <div class="section-upload-pic">
+                    </button>                       -->
+        </div>
+        <!-- <div class="section-upload-pic">
                     <div class="section1-upload-pic">   
-                        <h3>Name:</h3>
+                        <h5>Name</h5>
                         <input class="post-upload-pic" type="text" id="name" placeholder="Sunny Patel" required>
-                        <h3>Location:</h3>
+                        <h5>Location</h5>
                         <input class="post-upload-pic" type="text" id="location" name="location" placeholder="Mumbai - Vadodara ?" required>
                     </div>
                     <div class="section2-upload-pic">
-                        <h3>Profession:</h3>
-                        <input class="post-upload-pic" type="text" id="profession" name="profession" placeholder="Singer, Dancer, Poet ??" required>
-                        <h3>Hourly Charge:</h3>
+                        <h5>Profession</h5>
+                        <input class="post-upload-pic" type="text" id="profession" name="profession" placeholder="Singer, Dancer, Poet, etc." required>
+                        <h5>Hourly Charge</h5>
                         <input class="post-upload-pic" type="number" name="budget" placeholder="1000-2000 Rs" required>
                     </div>
-                </div>
-                <h3>Description:</h3>
-                <textarea class="post1-upload-pic" name="description" placeholder="Define yourself." required></textarea>
-                <h3>Achievements:</h3>
-                <textarea class="post1-upload-pic" name="achivements" placeholder="Let us know what you've achieved till date." required></textarea>
-                <button class="donebtn" type="submit">Upload</button>
-            </form>
-            
-        </div>
+                </div> -->
+                <div class="row g-3" style="margin-top: 16px">
+                    <div class="col-md-6">
+                      <h5 for="exampleFormControlTextarea1">Name</h5>
+                      <div class="input-group">
+                        <div class="input-group-text border border-danger">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-person-square"
+                            viewBox="0 0 16 16"
+                          >
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                            <path
+                              d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"
+                            />
+                          </svg>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control border border-danger"
+                          id="autoSizingInputGroup"
+                          placeholder="Username"
+                          name="budget"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 for="exampleFormControlTextarea1">Location</h5>
+                      <select
+                        class="form-select border border-danger"
+                        aria-h5="Default select example"
+                        name="location"
+                      >
+                        <option selected>Select the Location</option>
+                        <option value="1">Mumbai</option>
+                        <option value="2">Bangalore</option>
+                        <option value="3">Delhi</option>
+                        <option value="4">Hyderabad</option>
+                        <option value="5">Ahmedabad</option>
+                        <option value="6">Pune</option>
+                        <option value="7">Vadodara</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row g-3" style="margin-top: 16px; margin-bottom: 30px;">
+                    <div class="col-md-6">
+                      <h5 for="exampleFormControlTextarea1">Profession</h5>
+                      <div class="input-group">
+                        <div class="input-group-text border border-danger">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-suitcase-lg-fill"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M7 0a2 2 0 0 0-2 2H1.5A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14H2a.5.5 0 0 0 1 0h10a.5.5 0 0 0 1 0h.5a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2H11a2 2 0 0 0-2-2zM6 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1zM3 13V3h1v10zm9 0V3h1v10z"
+                            />
+                          </svg>
+                        </div>
+                        <input
+                          name="duration"
+                          type="text"
+                          class="form-control border border-danger"
+                          id="autoSizingInputGroup"
+                          placeholder="Username"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <h5>Hourly charge</h5>
+                      <div class="input-group">
+                        <div class="input-group-text border border-danger">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-currency-rupee"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"
+                            />
+                          </svg>
+                        </div>
+                        <input
+                          type="number"
+                          class="form-control border border-danger"
+                          id="autoSizingInputGroup"
+                          placeholder="Username"
+                          name="budget"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  
+        <h5>Description</h5>
+        <textarea
+          class="post1-upload-pic"
+          name="description"
+          placeholder="Define yourself."
+          required
+        ></textarea>
+        <h5>Upload Profile</h5>
+        <input class="file" name="profile" type="file" accept="image/*" />
+        <button class="donebtn" type="submit">Upload</button>
+      </form>
     </div>
+  </div>
 </div>
 <%- include('../footer.ejs') %>
