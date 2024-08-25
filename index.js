@@ -1,5 +1,15 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://127.0.0.1:27017/kalakaar");
+mongoose.connect("mongodb+srv://ecuser:ec123@eccluster.dbzbz7o.mongodb.net/kalakaar?retryWrites=true&w=majority&appName=eccluster", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+mongoose.connection.on("connected", () => {
+    console.log("Database Connected Successfully");
+});
+mongoose.connection.on("error", (err) => {
+    console.error("Database Connection Error:", err);
+});
+
 const bodyParser = require('body-parser');
 const { urlencoded } = require('body-parser');
 const path = require('path');
