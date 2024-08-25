@@ -6,6 +6,8 @@ const Posts = require("../models/posts");
 const work = require('../models/work');
 const category = require('../models/category');
 const applied = require('../models/applied');
+const multer = require('multer');
+const upload = multer({ dest: 'public/imgs/' });
 
 //signup for artist
 artist_route.get("/signup",(req,res)=>{
@@ -135,14 +137,13 @@ artist_route.get("/profile", async (req, res) => {
     }
 });
 
-artist_route.post("/uploadprofile", async (req, res) => {
-    //get details
-    let profilephoto = req.body.profile;
-    profilephoto = "public/imgs/"+profilephoto;
-    let profilevideo = req.body.video;
-    profilevideo = "public/imgs/"+profilevideo;
-    const artist = await artists.findOne({ _id: req.session.userId });
+artist_route.post("/uploadprofile", upload.fields([{ name: 'profile', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
+    let profilephoto = req.files.profile[0].filename; // multer stores files in req.files
+    profilephoto = "public/imgs/" + profilephoto;
+    let profilevideo = req.files.video[0].filename;
+    profilevideo = "public/imgs/" + profilevideo;
 
+    const artist = await artists.findOne({ _id: req.session.userId });
 
     const updatedtls = {
         location: req.body.location,
@@ -154,26 +155,19 @@ artist_route.post("/uploadprofile", async (req, res) => {
         profilevideo,
         completed: true,
     };
-    
-    const updateOp = {
-        $set: updatedtls
-    }
 
-    artists.updateOne(artist, updateOp)
+    artists.updateOne(artist, { $set: updatedtls })
     .then(() => {
         req.session.message = {
-        type: "success",
-        message: "updated successfully",
+            type: "success",
+            message: "updated successfully",
         };
-        console.log("Added");
         res.redirect("/");
     })
     .catch((err) => {
-        // res.json({ message: err.message });
         res.redirect("/signin");
     });
 });
-
 
 
 //upload work and collabration invitation
@@ -271,9 +265,9 @@ artist_route.get('/', async (req,res)=>{
 artist_route.get('/home', async (req,res)=>{
     try{
         // const allCategory = await category.find().toArray();  
-        const allWorks = await work.find().toArray();
+        const allWorks = await work.find();
 
-        res.render("artistView/home",{ allWorks });
+        res.render("home",{ allWorks });
     }catch (err) {
         console.log(err);
     }

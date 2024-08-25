@@ -6,14 +6,10 @@
         </div>
         <div class="form-container-upload-pic">
             <form action="/uploadprofile" method="post" enctype="multipart/form-data">
-                <!-- <div class="span-upload-pic">
-                    <span><h3>Upload Profile:</h3></span>
-                    <span><h3>Upload Post:</h3></span>
-                </div> -->
                 <div class="upload-img">
                     <button class="container-btn-file">
                         Upload Profile
-                        <input class="file" name="image" type="file" accept="image/*"/>
+                        <input class="file" name="profile" type="file" accept="image/*"/>
                     </button>                      
                     <button class="container-btn-file">
                         Upload Post
@@ -37,9 +33,10 @@
                 <h3>Description:</h3>
                 <textarea class="post1-upload-pic" name="description" placeholder="Define yourself." required></textarea>
                 <h3>Achievements:</h3>
-                <textarea class="post1-upload-pic" name="achievements" placeholder="Let us know what you've achieved till date." required></textarea>
+                <textarea class="post1-upload-pic" name="achivements" placeholder="Let us know what you've achieved till date." required></textarea>
                 <button class="donebtn" type="submit">Upload</button>
             </form>
+            
         </div>
     </div>
 </div>
