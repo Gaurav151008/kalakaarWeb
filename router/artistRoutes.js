@@ -96,7 +96,7 @@ artist_route.post('/verifySignin', async (req,res)=>{
             req.session.loggedin = true;
             req.session.userId = recruiter._id; 
             req.session.user = "recruiter";
-            res.redirect('/');
+            res.redirect('/uploadworkform');
         } else {
             res.status(401).send('Invalid username or password');
         }
@@ -251,7 +251,6 @@ artist_route.get('/', async (req,res)=>{
     try{
         if(req.session.loggedin){
             const allWorks = await work.find();
-            console.log(allWorks);
             res.render('home', { allWorks });
         }
         else{
