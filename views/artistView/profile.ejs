@@ -2,14 +2,14 @@
 <div class="profile-container">
   <div class="profile-header">
     <div class="profile-pic">
-      <img src="/public/imgs/img.jpg" alt="Profile Picture" />
+      <img src="<%= artist.profilePic %>" alt="Profile Picture" />
     </div>
     <div class="profile-info">
       <div class="profile-name">
         <div>
-          <h1>Alex Ferguson</h1>
+          <h1><%= artist.name %></h1>
           <div style="color: #fff; font-size: 20px; text-decoration: underline">
-            Dancer
+            <%= artist.profession %> <!-- Example: Dancer -->
           </div>
         </div>
         <div class="dropdown">
@@ -68,44 +68,40 @@
       <div class="profile-stats">
         <div>
           <strong style="color: #fff">Location :</strong>
-          <span style="color: #ffa888">Vadodara</span>
+          <span style="color: #ffa888"><%= artist.location %></span>
         </div>
         <div>
-          <strong style="color: #fff">Budjet :</strong>
-          <span style="color: #ffa888">1200/-</span>
+          <strong style="color: #fff">Budget :</strong>
+          <span style="color: #ffa888"><%= artist.budget %>/</span>
         </div>
       </div>
       <div class="profile-bio">
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. In dolores
-          rem, saepe explicabo, blanditiis quae deleniti necessitatibus minus
-          animi sequi dignissimos autem eius inventore sunt aperiam quas aliquam
-          recusandae beatae?
-        </p>
+        <p><%= artist.bio %></p>
       </div>
     </div>
   </div>
   <div class="achievements">
     <h2>My Personal Achievements</h2>
     <p style="color: #fff; margin-top: 50px">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut similique,
-      alias veniam ex autem rem obcaecati, ea tenetur quam recusandae ducimus
-      non at? Natus consequatur maiores eveniet id est.
+      <%= artist.achievements %>
     </p>
   </div>
   <h2 style="color: #ff4500; margin-top: 10px; padding: 20px">POSTS</h2>
   <div class="profile-posts">
-    <div class="post">
-      <video controls>
-        <source src="<%= artist.profilevideo %>" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
+    <% allpost.forEach(function(post) { %>
+      <div class="post">
+        <video controls>
+          <source src="<%= post.videoUrl %>" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <p>Location: <%= post.location %></p>
+        <p>Caption: <%= post.caption %></p>
+      </div>
+    <% }) %>
   </div>
 </div>
 
 <!-- Add post modal -->
-
 <div
   class="modal fade"
   id="staticBackdrop"
@@ -160,26 +156,38 @@
                     fill="#ff4500"
                   ></path>
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M12.25 10C12.25 9.58579 12.5858 9.25 13 9.25H18C18.4142 9.25 18.75 9.58579 18.75 10C18.75 10.4142 18.4142 10.75 18 10.75H13C12.5858 10.75 12.25 10.4142 12.25 10Z"
-                    fill="#ff4500"
+                    d="M12 12C12 10.3431 13.3431 9 15 9C16.6569 9 18 10.3431 18 12C18 13.6569 16.6569 15 15 15C13.3431 15 12 13.6569 12 12ZM9.5 11H5"
+                    stroke="#ff4500"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M9 18H16"
+                    stroke="#ff4500"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   ></path>
                 </g>
               </svg>
-              <p>Drag and Drop</p>
-              <span class="browse-button">Browse file</span>
+              <span>Add your Post</span>
             </div>
-            <input id="file" type="file" />
+            <input id="file" type="file" class="file-upload-input" />
           </label>
         </form>
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          style="background-color: #ff4500; border: 0px"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-success">Post</button>
+      </div>
     </div>
   </div>
 </div>
-
-<%- include('../footer.ejs') %>

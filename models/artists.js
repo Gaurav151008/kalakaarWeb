@@ -26,14 +26,10 @@ const artistSchema = new mongoose.Schema({
         required: false,
     },
     budget:{
-        type: String,
+        type: Number,
         required: false,
     },
     description:{
-        type: String,
-        required: false,
-    },
-    achivements:{
         type: String,
         required: false,
     },
@@ -41,11 +37,6 @@ const artistSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    profilevideo:{
-        type: String,
-        required: false,
-    },
-    
     completed:{
         type: Boolean,
         default: false,

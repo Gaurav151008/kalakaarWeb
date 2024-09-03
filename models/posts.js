@@ -13,11 +13,7 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    category:{
-        type: String,
-        required: true,
-    },
-    description:{
+    caption:{
         type: String,
         required: true,
     },

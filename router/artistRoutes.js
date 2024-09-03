@@ -116,13 +116,14 @@ artist_route.get("/uploadPost",(req,res)=>{
 artist_route.get("/profile", async (req, res) => {
     try {
         const artist = await artists.findOne({ _id: req.session.userId });
+        const allpost = await Posts.find({ _id: req.session.userId });
         console.log("here0");
         
         if(artist)
         {
             if(artist.completed){
                 console.log("here");
-                res.render("artistView/profile",{ artist });
+                res.render("artistView/profile",{ artist,allpost });
             }
             else{
                 res.render("artistView/uploadprofile");
@@ -137,11 +138,10 @@ artist_route.get("/profile", async (req, res) => {
     }
 });
 
-artist_route.post("/uploadprofile", upload.fields([{ name: 'profile', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
+artist_route.post("/uploadprofile", upload.fields([{ name: 'profile', maxCount: 1 }]), async (req, res) => {
     let profilephoto = req.files.profile[0].filename; // multer stores files in req.files
     profilephoto = "public/imgs/" + profilephoto;
-    let profilevideo = req.files.video[0].filename;
-    profilevideo = "public/imgs/" + profilevideo;
+    // profilevideo = "public/imgs/" + profilevideo;
 
     const artist = await artists.findOne({ _id: req.session.userId });
 
@@ -150,9 +150,8 @@ artist_route.post("/uploadprofile", upload.fields([{ name: 'profile', maxCount: 
         profession: req.body.profession,
         budget: req.body.budget,
         description: req.body.description,
-        achivements: req.body.achivements,
+        // achivements: req.body.achivements,
         profilephoto,
-        profilevideo,
         completed: true,
     };
 
@@ -165,10 +164,68 @@ artist_route.post("/uploadprofile", upload.fields([{ name: 'profile', maxCount: 
         res.redirect("/");
     })
     .catch((err) => {
+        console.log(err);
         res.redirect("/signin");
     });
 });
 
+//edit profile
+artist_route.post("/editprofile", upload.fields([{ name: 'profile', maxCount: 1 }]), async (req, res) => {
+    let profilephoto = req.files.profile[0].filename; // multer stores files in req.files
+    profilephoto = "public/imgs/" + profilephoto;
+    // profilevideo = "public/imgs/" + profilevideo;
+
+    const artist = await artists.findOne({ _id: req.session.userId });
+
+    const updatedtls = {
+        location: req.body.location,
+        profession: req.body.profession,
+        budget: req.body.budget,
+        description: req.body.description,
+        // achivements: req.body.achivements,
+        profilephoto,
+        completed: true,
+    };
+
+    artists.updateOne(artist, { $set: updatedtls })
+    .then(() => {
+        req.session.message = {
+            type: "success",
+            message: "updated successfully",
+        };
+        res.redirect("/profile");
+    })
+    .catch((err) => {
+        console.log(err);
+        res.redirect("/signin");
+    });
+});
+
+//post upload
+artist_route.post("/uploadpost", upload.fields([{ name: 'postpath', maxCount: 1 }]), async (req, res) => {
+    let file = req.files.postpath[0].filename; // multer stores files in req.files
+    file = "public/imgs/" + file;
+
+    const postdtls = {
+        artistId: req.session.userId,
+        file,
+        location: req.body.location,
+        caption: req.body.caption,
+};
+
+    artists.updateOne(artist, { $set: updatedtls })
+    .then(() => {
+        req.session.message = {
+            type: "success",
+            message: "updated successfully",
+        };
+        res.redirect("/");
+    })
+    .catch((err) => {
+        console.log(err);
+        res.redirect("/signin");
+    });
+});
 
 //upload work and collabration invitation
 artist_route.get("/uploadworkform",(req,res)=>{
