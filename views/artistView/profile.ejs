@@ -2,12 +2,12 @@
 <div class="profile-container">
   <div class="profile-header">
     <div class="profile-pic">
-      <img src="<%= artist.profilePic %>" alt="Profile Picture" />
+      <img src="<%= artist.profilephoto %>" alt="Profile Picture" />
     </div>
     <div class="profile-info">
       <div class="profile-name">
         <div>
-          <h1><%= artist.name %></h1>
+          <h1><%= artist.fullname %></h1>
           <div style="color: #fff; font-size: 20px; text-decoration: underline">
             <%= artist.profession %> <!-- Example: Dancer -->
           </div>
@@ -71,12 +71,16 @@
           <span style="color: #ffa888"><%= artist.location %></span>
         </div>
         <div>
+          <strong style="color: #fff">Location :</strong>
+          <span style="color: #ffa888"><%= artist.email %></span>
+        </div>
+        <div>
           <strong style="color: #fff">Budget :</strong>
           <span style="color: #ffa888"><%= artist.budget %>/-</span>
         </div>
       </div>
       <div class="profile-bio">
-        <p><%= artist.bio %></p>
+        <p><%= artist.description %></p>
       </div>
     </div>
   </div>
@@ -88,17 +92,33 @@
   </div>
   <h2 style="color: #ff4500; margin-top: 10px; padding: 20px">POSTS</h2>
   <div class="profile-posts">
-    <% allpost.forEach(function(post) { %>
+    <% allpost.forEach(function(post) { 
+      const fileType = post.file.split('.').pop().toLowerCase(); // Get the file extension
+    %>
       <div class="post">
-        <video controls>
-          <source src="<%= post.videoUrl %>" type="video/mp4"/>
-          Your browser does not support the video tag.
-        </video>
+        <% if (['mp4', 'webm', 'ogg'].includes(fileType)) { %>
+          <!-- Video -->
+          <video controls>
+            <source src="<%= post.file %>" type="video/<%= fileType %>"/>
+            Your browser does not support the video tag.
+          </video>
+        <% } else if (['jpg', 'jpeg', 'png', 'gif', 'bmp'].includes(fileType)) { %>
+          <!-- Image -->
+          <img src="<%= post.file %>" alt="Image Post" />
+        <% } else if (['pdf', 'doc', 'docx'].includes(fileType)) { %>
+          <!-- Document or Certificate -->
+          <a href="<%= post.file %>" target="_blank">View Document</a>
+        <% } else { %>
+          <!-- Fallback for unknown types -->
+          <p>Unsupported file type</p>
+        <% } %>
         <p>Location: <%= post.location %></p>
         <p>Caption: <%= post.caption %></p>
       </div>
     <% }) %>
   </div>
+  
+  
 </div>
 
 <!-- Add post modal -->
