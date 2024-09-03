@@ -55,9 +55,8 @@
             <form action="/applyjob" method="post">
               <div class="modal-header">
                 <h5 class="modal-title">
-                  <%= allWorks[j].title %><span style="color: rgb(142 137 137)"
-                    >(College Farewell Celebration)</span
-                  >
+                  <%= allWorks[j].title %>
+                  <!-- <span style="color: rgb(142 137 137)">(College Farewell Celebration)</span> -->
                 </h5>
                 <button
                   type="button"
@@ -77,7 +76,7 @@
                     </p>
                     <p>
                       <span class="icon"> </span>
-                      Budget: ₹5000/-
+                      Budget: <%= allWorks[j].budget %>
                     </p>
                   </div>
                   <div class="modal-detail-container1">

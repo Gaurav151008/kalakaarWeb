@@ -59,6 +59,11 @@ body {
   flex: 1;
 }
 
+.animate__fadeInLeft, .animate__fadeInRight, .animate__bounce {
+  opacity: 0; /* Initially hide elements */
+  visibility: hidden; /* Prevents interaction with the element while it's hidden */
+}
+
 h1 {
   font-size: 2.5rem;
   color: #333;

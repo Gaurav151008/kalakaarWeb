@@ -72,7 +72,7 @@
         </div>
         <div>
           <strong style="color: #fff">Budget :</strong>
-          <span style="color: #ffa888"><%= artist.budget %>/</span>
+          <span style="color: #ffa888"><%= artist.budget %>/-</span>
         </div>
       </div>
       <div class="profile-bio">
@@ -91,7 +91,7 @@
     <% allpost.forEach(function(post) { %>
       <div class="post">
         <video controls>
-          <source src="<%= post.videoUrl %>" type="video/mp4" />
+          <source src="<%= post.videoUrl %>" type="video/mp4"/>
           Your browser does not support the video tag.
         </video>
         <p>Location: <%= post.location %></p>
@@ -127,7 +127,7 @@
       <div
         class="modal-body justify-content-center d-flex align-items-center full-height"
       >
-        <form class="file-upload-form">
+        <form class="file-upload-form" style="display: flex; flex-direction: column;">
           <label for="file" class="file-upload-label">
             <div class="file-upload-design">
               <svg
@@ -169,12 +169,20 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   ></path>
-                </g>
+                </g>  
               </svg>
               <span>Add your Post</span>
             </div>
             <input id="file" type="file" class="file-upload-input" />
           </label>
+          <div class="input-group mb-3">
+            <span class="input-group-text border-none" id="basic-addon1" style="background-color: #ff4500; color: #fff;"><i class="bi bi-badge-cc-fill"></i></span>
+            <input type="text" class="form-control rounded-end border bg-transparent text-white" placeholder="Add Caption" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text border-none" id="basic-addon1" style="background-color: #ff4500; color: #fff;"><i class="bi bi-geo-alt-fill"></i></span>
+            <input type="text" class="form-control rounded-end border bg-transparent text-white" placeholder="Add Location" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
         </form>
       </div>
       <div class="modal-footer">
@@ -186,7 +194,7 @@
         >
           Close
         </button>
-        <button type="button" class="btn btn-success">Post</button>
+        <button type="button" style="background-color: #ff4500; border: 0px" class="btn btn-success">Post</button>
       </div>
     </div>
   </div>

@@ -1,230 +1,231 @@
 /* General styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fafafa;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
 }
 
 .profile-container {
-    max-width: 935px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #000;
-    border-radius: 5px;
-    position: relative; /* Ensure relative positioning for absolute children */
+  max-width: 935px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #000;
+  border-radius: 5px;
+  position: relative; /* Ensure relative positioning for absolute children */
 }
 
 .profile-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #dbdbdb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dbdbdb;
 }
 
 .profile-pic {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .profile-pic img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .profile-info {
-    text-align: center;
-    position: relative; /* Position relative to allow absolute positioning for children */
+  text-align: center;
+  position: relative; /* Position relative to allow absolute positioning for children */
 }
 
 .profile-name {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 450%;
 }
 
 .profile-name h1 {
-    color: #fff;
-    margin: 0;
+  color: #fff;
+  margin: 0;
 }
 
 .profile-stats {
-    padding-top: 10px;
-    text-align: center;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
+  padding-top: 10px;
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .profile-stats div {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .achievements {
-    color: #ff4500;
-    padding: 20px;
-    border-bottom: 1px solid #dbdbdb;
+  color: #ff4500;
+  padding: 20px;
+  border-bottom: 1px solid #dbdbdb;
 }
 
 .profile-bio p {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #FFA888;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ffa888;
 }
 
 .profile-posts {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
-    margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-top: 20px;
 }
 
 .post {
-    position: relative;
-    width: 100%;
-    padding-top: 100%; /* 1:1 Aspect Ratio */
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
 }
 
 .post video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 /* Positioning for the more options button */
 .dropdown {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 10;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
 }
+
 
 /* Responsive styles */
 @media (min-width: 768px) {
-    .profile-header {
-        flex-direction: row;
-        align-items: center;
-        text-align: left;
-    }
+  .profile-header {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
 
-    .profile-pic {
-        margin-right: 30px;
-        margin-bottom: 0;
-    }
+  .profile-pic {
+    margin-right: 30px;
+    margin-bottom: 0;
+  }
 
-    .profile-info {
-        text-align: left;
-        margin-left: 15%;
-    }
+  .profile-info {
+    text-align: left;
+    margin-left: 15%;
+  }
 
-    .profile-name {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
+  .profile-name {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 
-    .profile-stats {
-        text-align: left;
-        justify-content: flex-start;
-        padding-top: 0;
-        flex-direction: column;
-    }
+  .profile-stats {
+    text-align: left;
+    justify-content: flex-start;
+    padding-top: 0;
+    flex-direction: column;
+  }
 
-    .profile-posts {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .profile-posts {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-    /* Hide the more options button on larger screens */
-    .dropdown {
-        position: static;
-        margin-left: auto;
-    }
+  /* Hide the more options button on larger screens */
+  .dropdown {
+    position: static;
+    margin-left: auto;
+  }
 }
 
 @media (max-width: 768px) {
-    .profile-header {
-        flex-direction: column;
-    }
+  .profile-header {
+    flex-direction: column;
+  }
 
-    .profile-pic img {
-        width: 150px;
-        height: 150px;
-    }
+  .profile-pic img {
+    width: 150px;
+    height: 150px;
+  }
 
-    .profile-info {
-        text-align: center;
-        margin-left: 0;
-    }
+  .profile-info {
+    text-align: center;
+    margin-left: 0;
+  }
 
-    .profile-stats {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+  .profile-stats {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-    /* Position more options button in the top right corner */
-    .dropdown {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-    }
+  /* Position more options button in the top right corner */
+  .dropdown {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
 }
 
 @media (max-width: 480px) {
-    .profile-posts {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .profile-posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.color-orange{
-    color: #ff4500;
+.color-orange {
+  color: #ff4500;
 }
 
 .file-upload-form {
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .file-upload-label input {
-    display: none;
-  }
-  .file-upload-label {
-    cursor: pointer;
-    background-color: #212529;
-    padding: 30px 70px;
-    border-radius: 40px;
-  }
-  .file-upload-design {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-  }
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.file-upload-label input {
+  display: none;
+}
+.file-upload-label {
+  cursor: pointer;
+  background-color: #212529;
+  padding: 30px 70px;
+  border-radius: 40px;
+}
+.file-upload-design {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
 
-  .file-upload-design p{
-    font-size: larger;
-  }
+.file-upload-design p {
+  font-size: larger;
+}
 
-  .browse-button {
-    background-color: #ff4500;
-    padding: 5px 15px;
-    border-radius: 10px;
-    color: white;
-    transition: all 0.3s;
-  }
-  .browse-button:hover {
-    background-color: rgb(255, 255, 255);
-    color: #ff4500;
-  }
-  
+.browse-button {
+  background-color: #ff4500;
+  padding: 5px 15px;
+  border-radius: 10px;
+  color: white;
+  transition: all 0.3s;
+}
+.browse-button:hover {
+  background-color: rgb(255, 255, 255);
+  color: #ff4500;
+}
