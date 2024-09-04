@@ -343,7 +343,7 @@ artist_route.get('/logout', async (req,res)=>{
     
     try {
         req.session.destroy();
-        res.redirect('/signin');
+        res.redirect('/');
         
     } catch (err) {
         console.error(err);
