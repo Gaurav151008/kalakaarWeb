@@ -156,6 +156,17 @@
                   >Why Kalakaar?</a
                 >
               </li>
+            <% if(loggedin) { %>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="/appliedjobs"
+                  style="color: #ffeee8 !important"
+                  >Applied Jobs</a
+                >
+              </li>
+              <% } %>
+
             </ul>
             <form class="d-flex mt-3" role="search">
               <input

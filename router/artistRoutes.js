@@ -265,9 +265,11 @@ artist_route.post("/uploadworksubmit", async (req, res) => {
 artist_route.get("/appliedjobs", async (req, res) => {
     try {
       // 1. Fetch applied jobs for the artist
+        // const current = await applied.find({artistId: req.session.userId});
+        // const allApplication = await work.find({_id: current.workId});
         const allApplication = await work.find();
         res.render('artistView/appliedJobs',{ allApplication })
-      
+        
     } catch (err) {
       console.error(err);
       res.status(500).send('Error fetching applied jobs'); // Handle errors gracefully
@@ -302,6 +304,7 @@ artist_route.post("/applyjob", async (req, res) => {
         res.redirect("/signin");
     });
 });
+
 
 //landing page
 artist_route.get('/', async (req,res)=>{
