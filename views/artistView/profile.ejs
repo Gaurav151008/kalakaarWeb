@@ -5,73 +5,71 @@
       <img src="<%= artist.profilephoto %>" alt="Profile Picture" />
     </div>
     <div class="profile-info">
-      <div class="profile-name">
-        <div>
-          <h1><%= artist.fullname %></h1>
-          <div style="color: #fff; font-size: 20px; text-decoration: underline">
-            <%= artist.profession %> <!-- Example: Dancer -->
+        <div class="profile-name">
+          <div>
+            <h1><%= artist.fullname %></h1>
+            <div style="color: #fff; font-size: 20px; text-decoration: underline">
+              <%= artist.profession %> <!-- Example: Dancer -->
+            </div>
+          </div>
+          <div class="profile-dropdown">
+            <button
+              class="btn btn-secondary"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style="
+                background-color: transparent;
+                border: 0px;
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="currentColor"
+                class="bi bi-three-dots-vertical"
+                viewBox="0 0 16 16"
+                style="color: #ff4500"
+              >
+                <path
+                  d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"
+                />
+              </svg>
+            </button>
+            <ul
+              class="dropdown-menu"
+              style="
+                background-color: #f4c5b3;
+                --bs-dropdown-link-active-bg: none;
+                --bs-dropdown-link-active-color: none;
+                --bs-dropdown-link-hover-bg: none;
+                --bs-dropdown-link-hover-color: #fff;
+              "
+            >
+              <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+              <li>
+                <button
+                  class="dropdown-item"
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                >
+                  Add Post
+                </button>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
           </div>
         </div>
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            style="
-              background-color: transparent;
-              border: 0px;
-              justify-content: center;
-              align-items: center;
-            "
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="25"
-              fill="currentColor"
-              class="bi bi-three-dots-vertical"
-              viewBox="0 0 16 16"
-              style="color: #ff4500"
-            >
-              <path
-                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"
-              />
-            </svg>
-          </button>
-          <ul
-            class="dropdown-menu"
-            style="
-              background-color: #f4c5b3;
-              --bs-dropdown-link-active-bg: none;
-              --bs-dropdown-link-active-color: none;
-              --bs-dropdown-link-hover-bg: none;
-              --bs-dropdown-link-hover-color: #fff;
-            "
-          >
-            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-            <li>
-              <button
-                class="dropdown-item"
-                href="#"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
-              >
-                Add Post
-              </button>
-            </li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
-          </ul>
-        </div>
-      </div>
       <div class="profile-stats">
         <div>
           <strong style="color: #fff">Location :</strong>
           <span style="color: #ffa888"><%= artist.location %></span>
         </div>
         <div>
-          <strong style="color: #fff">Location :</strong>
+          <strong style="color: #fff">Email :</strong>
           <span style="color: #ffa888"><%= artist.email %></span>
         </div>
         <div>
@@ -147,63 +145,137 @@
       <div
         class="modal-body justify-content-center d-flex align-items-center full-height"
       >
-        <form class="file-upload-form" style="display: flex; flex-direction: column;">
-          <label for="file" class="file-upload-label">
-            <div class="file-upload-design">
-              <svg
-                width="150"
-                height="150"
-                viewBox="0 0 24.00 24.00"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke=""
-                stroke-width="0.00024000000000000003"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
+      <form class="file-upload-form" style="display: flex; flex-direction: column;">
+        <!-- <label for="file" class="file-upload-label">
+          <div class="file-upload-design">
+            <svg
+              width="150"
+              height="150"
+              viewBox="0 0 24.00 24.00"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke=""
+              stroke-width="0.00024000000000000003"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  opacity="0.5"
+                  d="M2 6.94975C2 6.06722 2 5.62595 2.06935 5.25839C2.37464 3.64031 3.64031 2.37464 5.25839 2.06935C5.62595 2 6.06722 2 6.94975 2C7.33642 2 7.52976 2 7.71557 2.01738C8.51665 2.09229 9.27652 2.40704 9.89594 2.92051C10.0396 3.03961 10.1763 3.17633 10.4497 3.44975L11 4C11.8158 4.81578 12.2237 5.22367 12.7121 5.49543C12.9804 5.64471 13.2651 5.7626 13.5604 5.84678C14.0979 6 14.6747 6 15.8284 6H16.2021C18.8345 6 20.1506 6 21.0062 6.76946C21.0849 6.84024 21.1598 6.91514 21.2305 6.99383C22 7.84935 22 9.16554 22 11.7979V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V6.94975Z"
+                  fill="#ff4500"
+                ></path>
+                <path
+                  d="M20 6.23751C19.9992 5.94016 19.9949 5.76263 19.9746 5.60842C19.7974 4.26222 18.7381 3.2029 17.3919 3.02567C17.1969 3 16.9647 3 16.5003 3H9.98828C10.1042 3.10392 10.2347 3.23445 10.45 3.44975L11.0003 4C11.8161 4.81578 12.2239 5.22367 12.7124 5.49543C12.9807 5.64471 13.2653 5.7626 13.5606 5.84678C14.0982 6 14.675 6 15.8287 6H16.2024C17.9814 6 19.1593 6 20 6.23751Z"
+                  fill="#ff4500"
+                ></path>
+                <path
+                  d="M12 12C12 10.3431 13.3431 9 15 9C16.6569 9 18 10.3431 18 12C18 13.6569 16.6569 15 15 15C13.3431 15 12 13.6569 12 12ZM9.5 11H5"
+                  stroke="#ff4500"
+                  stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <path
-                    opacity="0.5"
-                    d="M2 6.94975C2 6.06722 2 5.62595 2.06935 5.25839C2.37464 3.64031 3.64031 2.37464 5.25839 2.06935C5.62595 2 6.06722 2 6.94975 2C7.33642 2 7.52976 2 7.71557 2.01738C8.51665 2.09229 9.27652 2.40704 9.89594 2.92051C10.0396 3.03961 10.1763 3.17633 10.4497 3.44975L11 4C11.8158 4.81578 12.2237 5.22367 12.7121 5.49543C12.9804 5.64471 13.2651 5.7626 13.5604 5.84678C14.0979 6 14.6747 6 15.8284 6H16.2021C18.8345 6 20.1506 6 21.0062 6.76946C21.0849 6.84024 21.1598 6.91514 21.2305 6.99383C22 7.84935 22 9.16554 22 11.7979V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V6.94975Z"
-                    fill="#ff4500"
-                  ></path>
-                  <path
-                    d="M20 6.23751C19.9992 5.94016 19.9949 5.76263 19.9746 5.60842C19.7974 4.26222 18.7381 3.2029 17.3919 3.02567C17.1969 3 16.9647 3 16.5003 3H9.98828C10.1042 3.10392 10.2347 3.23445 10.45 3.44975L11.0003 4C11.8161 4.81578 12.2239 5.22367 12.7124 5.49543C12.9807 5.64471 13.2653 5.7626 13.5606 5.84678C14.0982 6 14.675 6 15.8287 6H16.2024C17.9814 6 19.1593 6 20 6.23751Z"
-                    fill="#ff4500"
-                  ></path>
-                  <path
-                    d="M12 12C12 10.3431 13.3431 9 15 9C16.6569 9 18 10.3431 18 12C18 13.6569 16.6569 15 15 15C13.3431 15 12 13.6569 12 12ZM9.5 11H5"
-                    stroke="#ff4500"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path>
-                  <path
-                    d="M9 18H16"
-                    stroke="#ff4500"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path>
-                </g>  
-              </svg>
-              <span>Add your Post</span>
-            </div>
-            <input id="file" type="file" class="file-upload-input" />
-          </label>
-          <div class="input-group mb-3">
-            <span class="input-group-text border-none" id="basic-addon1" style="background-color: #ff4500; color: #fff;"><i class="bi bi-badge-cc-fill"></i></span>
-            <input type="text" class="form-control rounded-end border bg-transparent text-white" placeholder="Add Caption" aria-label="Username" aria-describedby="basic-addon1">
+                ></path>
+                <path
+                  d="M9 18H16"
+                  stroke="#ff4500"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </g>
+            </svg>
+            <span>Add your Post</span>
+            <span id="file-name" style="margin-top: 10px; color: #ffa888;"></span>
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text border-none" id="basic-addon1" style="background-color: #ff4500; color: #fff;"><i class="bi bi-geo-alt-fill"></i></span>
-            <input type="text" class="form-control rounded-end border bg-transparent text-white" placeholder="Add Location" aria-label="Username" aria-describedby="basic-addon1">
+          <input id="file" type="file" class="file-upload-input" accept="video/*"/>
+        </label> -->
+        <div class="file-upload-container">
+          <div class="file-upload">
+            <input multiple="" class="file-input" id="fileInput" type="file" accept="video/*"/>
+            <label class="file-label" for="fileInput">
+              <svg
+              width="150"
+              height="150"
+              viewBox="0 0 24.00 24.00"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke=""
+              stroke-width="0.00024000000000000003"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  opacity="0.5"
+                  d="M2 6.94975C2 6.06722 2 5.62595 2.06935 5.25839C2.37464 3.64031 3.64031 2.37464 5.25839 2.06935C5.62595 2 6.06722 2 6.94975 2C7.33642 2 7.52976 2 7.71557 2.01738C8.51665 2.09229 9.27652 2.40704 9.89594 2.92051C10.0396 3.03961 10.1763 3.17633 10.4497 3.44975L11 4C11.8158 4.81578 12.2237 5.22367 12.7121 5.49543C12.9804 5.64471 13.2651 5.7626 13.5604 5.84678C14.0979 6 14.6747 6 15.8284 6H16.2021C18.8345 6 20.1506 6 21.0062 6.76946C21.0849 6.84024 21.1598 6.91514 21.2305 6.99383C22 7.84935 22 9.16554 22 11.7979V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V6.94975Z"
+                  fill="#ff4500"
+                ></path>
+                <path
+                  d="M20 6.23751C19.9992 5.94016 19.9949 5.76263 19.9746 5.60842C19.7974 4.26222 18.7381 3.2029 17.3919 3.02567C17.1969 3 16.9647 3 16.5003 3H9.98828C10.1042 3.10392 10.2347 3.23445 10.45 3.44975L11.0003 4C11.8161 4.81578 12.2239 5.22367 12.7124 5.49543C12.9807 5.64471 13.2653 5.7626 13.5606 5.84678C14.0982 6 14.675 6 15.8287 6H16.2024C17.9814 6 19.1593 6 20 6.23751Z"
+                  fill="#ff4500"
+                ></path>
+                <path
+                  d="M12 12C12 10.3431 13.3431 9 15 9C16.6569 9 18 10.3431 18 12C18 13.6569 16.6569 15 15 15C13.3431 15 12 13.6569 12 12ZM9.5 11H5"
+                  stroke="#ff4500"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  d="M9 18H16"
+                  stroke="#ff4500"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </g>
+            </svg>
+              <p>Click to upload</p>
+            </label>
+            <p id="file-name" style="color: #ffa888;">No file chosen</p>
           </div>
-        </form>
+        </div>
+        <div class="input-group mb-3">
+          <span
+            class="input-group-text border-none"
+            id="basic-addon1"
+            style="background-color: #ff4500; color: #fff;"
+            ><i class="bi bi-badge-cc-fill"></i
+          ></span>
+          <input
+            type="text"
+            class="form-control rounded-end border bg-transparent text-white"
+            placeholder="Add Caption"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span
+            class="input-group-text border-none"
+            id="basic-addon1"
+            style="background-color: #ff4500; color: #fff;"
+            ><i class="bi bi-geo-alt-fill"></i
+          ></span>
+          <input
+            type="text"
+            class="form-control rounded-end border bg-transparent text-white"
+            placeholder="Add Location"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+      </form>
+      
       </div>
       <div class="modal-footer">
         <button
@@ -219,3 +291,10 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.getElementById('fileInput').addEventListener('change', function() {
+    var fileName = this.files[0].name;
+    document.getElementById('file-name').textContent = fileName;
+});
+</script>

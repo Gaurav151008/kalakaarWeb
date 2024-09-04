@@ -44,7 +44,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
-  gap: 450%;
+  position: relative;
 }
 
 .profile-name h1 {
@@ -101,11 +101,10 @@ body {
 }
 
 /* Positioning for the more options button */
-.dropdown {
+.profile-dropdown {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 10;
+  top: 0;
+  right: 0;
 }
 
 
@@ -145,9 +144,10 @@ body {
   }
 
   /* Hide the more options button on larger screens */
-  .dropdown {
-    position: static;
-    margin-left: auto;
+  .profile-dropdown {
+    position: absolute;
+    top: 3px;
+    left: 200px;
   }
 }
 
@@ -228,4 +228,53 @@ body {
 .browse-button:hover {
   background-color: rgb(255, 255, 255);
   color: #ff4500;
+}
+
+
+/* modal */
+.file-upload-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.file-upload {
+  position: relative;
+  /* border: 2px dashed #b8bcbf; */
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  background: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* .file-upload:hover {
+  background-color: #e2e6ea;
+} */
+
+.file-input {
+  display: none;
+}
+
+.file-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.upload-icon {
+  font-size: 50px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.file-upload p {
+  margin: 0;
+  font-size: 16px;
+  color: #6c757d;
+}
+
+.file-upload.dragover {
+  background-color: #007bff;
+  color: white;
 }

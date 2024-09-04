@@ -1,10 +1,5 @@
 <%- include('../header.ejs') %>
-<div class="main-container" style="padding: 50px">
-  <div>
-    <h1 style="color: white">Your Applications</h1>
-    
-  </div>
-  <% for (let i = 0; i < 2; i++) { %>
+<!--  <% for (let i = 0; i < 2; i++) { %>
   <div class="row" style="margin-top: 20px; margin-bottom: 50px">
     <% for (let i = 0; i < 3; i++) { %>
     <button
@@ -33,5 +28,38 @@
     </button>
     <% } %>
   </div>
-  <% } %> <%- include('../footer.ejs') %>
-</div>
+  <% } %> -->
+  <div class="main-container" style="padding: 50px">
+    <div class="appliedJobs-container">
+      <div>
+        <h1 style="color: white">Your Applications</h1>
+      </div>
+      <% for (let i = 0; i < 2; i++) { %>
+      <div class="appliedJobs">
+        <% for (let i = 0; i < 3; i++) { %>
+        <div class="appliedJobs-card">
+          <div class="first-content">
+            <img
+              src="/public/imgs/applied.png"
+              alt="Description of the image"
+              class="appliedjobsimg"
+            />
+            <span><%= allApplication[i].title %></span>
+          </div>
+          <div class="second-content">
+            <div class="second-content-inner">
+              <p>Duration: <span style="color: #ffffff;"><%= allApplication[i].duration %></span></p>
+              <p>Location: <span style="color: #ffffff;"><%= allApplication[i].location %></span></p>
+              <p>Budget: <span style="color: #ffffff;"><%= allApplication[i].budget %></span></p>
+              <p>Date: <span style="color: #ffffff;"><%= new Date(allApplication[i].date).toLocaleDateString() %></span></p>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+    <% } %> <%- include('../footer.ejs') %>
+  </div>
+  
+  
+  
