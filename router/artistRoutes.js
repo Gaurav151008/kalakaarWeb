@@ -4,6 +4,7 @@ const artists = require("../models/artists");
 const recruiters = require("../models/recruiter");
 const Posts = require("../models/posts");
 const work = require('../models/work');
+const chat = require('../models/chat');
 const category = require('../models/category');
 const applied = require('../models/applied');
 const multer = require('multer');
@@ -90,13 +91,14 @@ artist_route.post('/verifySignin', async (req,res)=>{
         if (artist) {
             req.session.loggedin = true;
             req.session.userId = artist._id; 
+            req.session.profession = artist.profession; 
             req.session.user = "artist";
             res.redirect('/');
         }else if(recruiter){
             req.session.loggedin = true;
             req.session.userId = recruiter._id; 
             req.session.user = "recruiter";
-            res.redirect('/uploadworkform');
+            res.redirect('/home1');
         } else {
             res.status(401).send('Invalid username or password');
         }
@@ -265,9 +267,15 @@ artist_route.post("/uploadworksubmit", async (req, res) => {
 artist_route.get("/appliedjobs", async (req, res) => {
     try {
       // 1. Fetch applied jobs for the artist
-        // const current = await applied.find({artistId: req.session.userId});
-        // const allApplication = await work.find({_id: current.workId});
-        const allApplication = await work.find();
+        const current = await applied.find({ artistId: req.session.userId });
+
+        // Extract all workIds from the result
+        const workIds = current.map(appliedItem => appliedItem.workId);
+        
+        // Find all work details where the _id is in the list of workIds
+        const allApplication = await work.find({ _id: { $in: workIds } });
+
+        // const allApplication = await work.find();
         res.render('artistView/appliedJobs',{ allApplication })
         
     } catch (err) {
@@ -311,7 +319,8 @@ artist_route.get('/', async (req,res)=>{
     try{
         if(req.session.loggedin){
             const allWorks = await work.find();
-            res.render('home', { allWorks });
+            const relatedTalents = await artists.find({profession:req.session.profession});
+            res.render('home', { allWorks, relatedTalents });
         }
         else{
             res.render('landing',{ title:"Kalakaar" });
@@ -321,13 +330,13 @@ artist_route.get('/', async (req,res)=>{
     }
 });
 
-//home
-artist_route.get('/home', async (req,res)=>{
-    try{
-        // const allCategory = await category.find().toArray();  
-        const allWorks = await work.find();
 
-        res.render("home",{ allWorks });
+
+//home
+artist_route.get('/home1', async (req,res)=>{
+    try{
+        const talents = await artists.find({});
+        res.render('home1', { talents });
     }catch (err) {
         console.log(err);
     }
@@ -351,5 +360,40 @@ artist_route.get('/logout', async (req,res)=>{
     }
     
 })
+
+
+artist_route.post('/save-message', async (req, res) => {
+    const { artistId, recruiterId, message } = req.body;
+  
+    const newMessage = new chat({
+      artistId,
+      recruiterId,
+      sender: 'You', // Assuming this API is for recruiters sending messages
+      message,
+    });
+  
+    try {
+      await newMessage.save();
+      res.json({ success: true });
+    } catch (error) {
+      console.error('Error saving message:', error);
+      res.status(500).json({ success: false });
+    }
+  });
+  
+  // Route to get messages for an artist
+  artist_route.get('/get-messages/:artistId', async (req, res) => {
+    const { artistId } = req.params;
+  
+    try {
+      const messages = await Chat.find({ artistId }).sort({ timestamp: 1 });
+      res.json({ messages });
+    } catch (error) {
+      console.error('Error retrieving messages:', error);
+      res.status(500).json({ success: false });
+    }
+  });
+  
+
 
 module.exports = artist_route;

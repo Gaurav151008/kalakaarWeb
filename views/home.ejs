@@ -20,7 +20,6 @@
         Looking for Work?<span style="color: #ffffff"> Browse jobs</span>
       </h4>
     </div>
-    <!-- <% for (let i = 0; i < 2; i++) { %> -->
     <div class="browse-work-row" style="margin-top: 20px;">
       <% for (let j = 0; j < allWorks.length; j++) { %>
       <div class="browse-work-card">
@@ -143,11 +142,10 @@
   
       <% } %>
     </div>
-    <!-- <% } %> -->
   </div>
   
   
-  <div class="container" id="target-section2" style="display: block !important">
+  <div class="container" id="target-section2" style="display: block !important;max-width:100%;">
     <div style="text-align: center;">
       <h1 style="color: white">Browse talent by category</h1>
       <h4 style="color: #ff703c">
@@ -155,8 +153,7 @@
       </h4>
     </div>
     <div class="browse-jobs-row" style="display: flex; justify-content: center; flex-wrap: wrap;">
-      <% for (let i = 0; i < 2; i++) { %>
-        <% for (let j = 0; j < 4; j++) { %>
+        <% for (let j = 0; j < relatedTalents.length ; j++) { %>
           <div class="browse-jobs-card">
             <div class="browse-jobs-row g-0">
               <div class="browse-jobs-col-md-4">
@@ -168,14 +165,13 @@
               </div>
               <div class="browse-jobs-col-md-8">
                 <div class="browse-jobs-card-body">
-                  <h5 class="browse-jobs-card-title">MMA Artist</h5>
-                  <p class="browse-jobs-card-text">30 Artist Available</p>
+                  <h5 class="browse-jobs-card-title"><%= relatedTalents[j].fullname %></h5>
+                  <p class="browse-jobs-card-text"><%= relatedTalents[j].profession %></p>
                 </div>
               </div>
             </div>
           </div>
         <% } %>
-      <% } %>
     </div>
   </div>
   <div class="who-are-you-container">
