@@ -1,0 +1,214 @@
+<%- include('./header.ejs') %>
+
+<div class="main-container">
+  <div class="home-container">
+    <div class="home-image-container">
+      <img src="/public/imgs/Sculpting-rafiki.png" alt="Sculpting" />
+    </div>
+    <div class="home-content-container">
+      <h1 style="text-align: left">Create - Connect - Grow with Kalakaar</h1>
+      <p style="color: #fab79d; text-align: left;">
+        Access top talent for your projects, optimize costs, and ensure
+        top-notch deliverables.
+      </p>
+    </div>
+  </div>
+
+  <div class="artist-container" style="display: block; text-align: center;">
+    <div>
+      <h1 style="color: white">Browse Artists</h1>
+      <h4 style="color: #ff703c; text-align: center;">
+        Looking for Talent? <span style="color: #ffffff"> Browse Artists</span>
+      </h4>
+    </div>
+    
+    <div class="artist-row" style="margin-top: 20px;">
+      <% for (let j = 0; j < talents.length; j++) { %>
+      <div class="artist-card-wrapper">
+        
+        <!-- Profile Photo -->
+        <div class="artist-photo-section">
+          <img src="<%= talents[j].profilephoto %>" alt="Profile Photo" class="artist-photo" />
+        </div>
+  
+        <!-- Artist Details -->
+        <div class="artist-info-section">
+          <h2 class="artist-name"><%= talents[j].fullname %></h2>
+          <p class="artist-profession">Profession: <%= talents[j].profession %></p>
+          <p class="artist-budget">Budget: <%= talents[j].budget %></p>
+  
+          <!-- Button to Open Modal -->
+          <button
+            class="artist-view-details-btn btn"
+            data-bs-toggle="modal"
+            style="background-color: #ff703c;"
+            data-bs-target="#artistModal<%= j %>"
+          >
+            View Details
+          </button>
+        </div>
+        
+      </div>
+  
+      <!-- Modal for Artist Details -->
+      <div class="modal fade" id="artistModal<%= j %>" tabindex="-1" aria-labelledby="artistModalLabel<%= j %>" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            
+            <div class="modal-header">
+              <h5 class="modal-title" id="artistModalLabel<%= j %>">
+                <%= talents[j].fullname %> - <%= talents[j].profession %>
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+  
+            <div class="modal-body">
+              <!-- Profile Photo in Modal -->
+              <div class="artist-modal-photo-section">
+                <img src="<%= talents[j].profilephoto %>" alt="Profile Photo" class="artist-modal-photo" />
+              </div>
+              
+              <!-- Modal Artist Details -->
+              <div class="artist-modal-info">
+                <p>Full Name: <%= talents[j].fullname %></p>
+                <p>Profession: <%= talents[j].profession %></p>
+                <p>Location: <%= talents[j].location %></p>
+                <p>Budget: <%= talents[j].budget %></p>
+                <p>Contact: <%= talents[j].contact %></p>
+                <p>Description: <%= talents[j].description %></p>
+              </div>
+              
+              <!-- Chat Button -->
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#chatModal<%= j %>"
+              >
+                Chat
+              </button>
+            </div>
+  
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+  
+      <!-- Chat Modal -->
+      <div class="modal fade" id="chatModal<%= j %>" tabindex="-1" aria-labelledby="chatModalLabel<%= j %>" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="chatModalLabel<%= j %>">Chat with <%= talents[j].fullname %></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="chat-box" id="chatBox<%= j %>">
+                <!-- Messages will be loaded here from the backend -->
+              </div>
+              <div class="chat-input">
+                <input
+                  type="text"
+                  id="messageInput<%= j %>"
+                  class="form-control"
+                  placeholder="Type your message..."
+                />
+                <button
+                  type="button"
+                  class="btn btn-primary mt-2"
+                  onclick="sendMessage('<%= j %>')"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <% } %>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage(artistId) {
+      const messageInput = document.getElementById(`messageInput${artistId}`);
+      const message = messageInput.value.trim();
+  
+      if (message === '') return;
+  
+      // Simulate sending the message to the server and storing it
+      fetch('/save-message', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          artistId: artistId,   // Pass artistId to identify the artist
+          recruiterId: 'your_recruiter_id', // Optional if needed for recruiter identification
+          message: message,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            // Display the new message in the chat box
+            const chatBox = document.getElementById(`chatBox${artistId}`);
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message');
+            messageElement.innerHTML = `<strong>You:</strong> ${message}`;
+            chatBox.appendChild(messageElement);
+  
+            // Clear the input field
+            messageInput.value = '';
+  
+            // Scroll to the bottom of the chat
+            chatBox.scrollTop = chatBox.scrollHeight;
+          }
+        })
+        .catch((error) => {
+          console.error('Error saving message:', error);
+        });
+    }
+  
+    // Load chat messages when the chat modal opens
+    document.querySelectorAll('[id^="chatModal"]').forEach((modal) => {
+      modal.addEventListener('show.bs.modal', function () {
+        const artistId = this.id.replace('chatModal', '');
+        const chatBox = document.getElementById(`chatBox${artistId}`);
+  
+        // Fetch previous messages for the artist
+        fetch(`/get-messages/${artistId}`)
+          .then((response) => response.json())
+          .then((data) => {
+            chatBox.innerHTML = ''; // Clear chat box before loading messages
+            data.messages.forEach((msg) => {
+              const messageElement = document.createElement('div');
+              messageElement.classList.add('chat-message');
+              messageElement.innerHTML = `<strong>${msg.sender}:</strong> ${msg.message}`;
+              chatBox.appendChild(messageElement);
+            });
+  
+            // Scroll to the bottom of the chat
+            chatBox.scrollTop = chatBox.scrollHeight;
+          })
+          .catch((error) => {
+            console.error('Error loading messages:', error);
+          });
+      });
+    });
+</script>
+
+  
+  <!-- Include Footer -->
+
+  <%- include('./footer.ejs') %>
+</div>
